@@ -33,6 +33,8 @@
             --success-color: #10b981;
             --warning-color: #f59e0b;
             --error-color: #ef4444;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -43,52 +45,57 @@
             min-height: 100vh;
         }
 
+        /* Container with responsive padding */
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 1rem;
         }
 
+        /* Header styling */
         .header {
             text-align: center;
-            padding: 40px 0;
+            padding: 2rem 0;
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
         }
 
         .header h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
             text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .header p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             opacity: 0.9;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
         }
 
         .last-updated {
             background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
             display: inline-block;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
         }
 
+        /* Main content card */
         .content-card {
             background: var(--bg-primary);
             border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            margin-bottom: 30px;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            box-shadow: 0 20px 25px -5px var(--shadow-medium);
+            margin-bottom: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* Section styling */
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
         }
 
         .section:last-child {
@@ -97,10 +104,10 @@
 
         h2 {
             color: var(--primary-color);
-            font-size: 1.8rem;
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
             font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--primary-color);
             position: relative;
         }
@@ -117,35 +124,54 @@
 
         h3 {
             color: var(--text-primary);
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             font-weight: 600;
-            margin: 25px 0 15px 0;
+            margin: 1.5rem 0 1rem 0;
         }
 
         p {
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             line-height: 1.7;
         }
 
         ul, ol {
-            margin: 16px 0;
-            padding-left: 24px;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             color: var(--text-secondary);
             line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
+        /* App info box */
+        .app-info {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .app-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .app-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight boxes */
         .highlight-box {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border: 2px solid var(--accent-color);
             border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
             position: relative;
         }
 
@@ -155,7 +181,7 @@
             top: -10px;
             left: 20px;
             background: var(--bg-primary);
-            padding: 0 8px;
+            padding: 0 0.5rem;
             font-size: 1.2rem;
         }
 
@@ -163,8 +189,8 @@
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border: 2px solid var(--warning-color);
             border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
             position: relative;
         }
 
@@ -174,22 +200,76 @@
             top: -10px;
             left: 20px;
             background: var(--bg-primary);
-            padding: 0 8px;
+            padding: 0 0.5rem;
             font-size: 1.2rem;
         }
 
+        .adult-notice {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 2px solid var(--error-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+            position: relative;
+        }
+
+        .adult-notice::before {
+            content: '🔞';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--bg-primary);
+            padding: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive data table */
+        .data-table-container {
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px var(--shadow-light);
+        }
+
+        .data-table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .data-table tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* Contact card */
         .contact-card {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 30px;
+            padding: 2rem;
             border-radius: 16px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 2.5rem;
         }
 
         .contact-card h3 {
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
 
         .contact-card p {
@@ -208,10 +288,11 @@
             border-bottom-color: white;
         }
 
+        /* Back to top button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 2rem;
+            right: 2rem;
             background: var(--primary-color);
             color: white;
             width: 50px;
@@ -225,6 +306,7 @@
             transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
+            z-index: 1000;
         }
 
         .back-to-top.visible {
@@ -237,85 +319,89 @@
             box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
         }
 
-        .app-info {
+        /* Grid layout for service features */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .service-card {
             background: var(--bg-secondary);
             border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 1.5rem;
             border-left: 4px solid var(--primary-color);
         }
 
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .data-table th,
-        .data-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .data-table th {
-            background: var(--primary-color);
-            color: white;
+        .service-card h4 {
+            color: var(--primary-color);
             font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        .data-table tr:hover {
-            background: var(--bg-secondary);
-        }
-
-        .adult-notice {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            border: 2px solid var(--error-color);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .adult-notice::before {
-            content: '🔞';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: var(--bg-primary);
-            padding: 0 8px;
-            font-size: 1.2rem;
-        }
-
+        /* Responsive breakpoints */
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
-            }
-
-            .header h1 {
-                font-size: 2.2rem;
+                padding: 0.75rem;
             }
 
             .content-card {
-                padding: 25px;
                 border-radius: 16px;
             }
 
-            h2 {
-                font-size: 1.5rem;
-            }
-
             .back-to-top {
-                bottom: 20px;
-                right: 20px;
+                bottom: 1.5rem;
+                right: 1.5rem;
                 width: 45px;
                 height: 45px;
             }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .app-info {
+                padding: 1rem;
+            }
+
+            .highlight-box,
+            .warning-box,
+            .adult-notice {
+                padding: 1rem;
+            }
         }
 
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .header {
+                padding: 1.5rem 0;
+            }
+
+            .content-card {
+                padding: 1.25rem;
+            }
+
+            .data-table {
+                min-width: 500px;
+            }
+
+            ul, ol {
+                padding-left: 1rem;
+            }
+        }
+
+        /* Animation classes */
         .fade-in {
             animation: fadeIn 0.8s ease-in;
         }
@@ -328,6 +414,27 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .content-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+
+            .back-to-top {
+                display: none;
+            }
+
+            .header {
+                color: black;
             }
         }
     </style>
@@ -365,9 +472,9 @@
                     information when you use our mobile application.
                 </p>
                 <div class="highlight-box">
-                    <p><strong>Important:</strong> Tappy Tac Toe is designed with privacy in mind. We collect minimal data 
-                    necessary only to provide you with the best gaming experience and to support app functionality including 
-                    Firebase services, Google Mobile Ads, and social features.</p>
+                    <p><strong>Important:</strong> Tappy Tac Toe is designed with privacy in mind. We only collect the minimal data 
+                    necessary to provide you with the best gaming experience and to support essential app functionality including 
+                    cloud leaderboards, Google Mobile Ads, and game preferences.</p>
                 </div>
             </section>
 
@@ -377,69 +484,64 @@
                 <h3>Information You Provide Directly</h3>
                 <ul>
                     <li><strong>Google Account Information:</strong> When you sign in via Google Sign-In for leaderboards (display name, email, profile photo)</li>
-                    <li><strong>Game Profile Data:</strong> Player preferences, selected themes, and customization settings</li>
-                    <li><strong>Game Statistics:</strong> Win/loss records, game history, scores, and achievement progress</li>
+                    <li><strong>Game Profile Data:</strong> Player name, emoji avatar, and customization settings</li>
+                    <li><strong>Game Statistics:</strong> Win/loss records, game history, scores, and achievement progress stored locally on your device</li>
                     <li><strong>Settings and Preferences:</strong> Theme selection, haptic feedback settings, and other game preferences</li>
-                    <li><strong>Leaderboard Data:</strong> Scores and rankings when participating in global leaderboards</li>
+                    <li><strong>Leaderboard Data:</strong> Scores and rankings when participating in global leaderboards (only if signed in)</li>
                     <li><strong>Feedback and Ratings:</strong> Comments, ratings, and feedback submitted through the app</li>
                 </ul>
 
                 <h3>Information Collected Automatically</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Data Type</th>
-                            <th>Purpose</th>
-                            <th>Retention</th>
-                            <th>Service</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Device Information</td>
-                            <td>App optimization and crash prevention</td>
-                            <td>90 days</td>
-                            <td>Firebase Analytics</td>
-                        </tr>
-                        <tr>
-                            <td>Game Analytics</td>
-                            <td>Improve game balance and features</td>
-                            <td>90 days</td>
-                            <td>Firebase Analytics</td>
-                        </tr>
-                        <tr>
-                            <td>Performance Data</td>
-                            <td>Fix bugs and improve performance</td>
-                            <td>60 days</td>
-                            <td>Firebase Crashlytics</td>
-                        </tr>
-                        <tr>
-                            <td>Advertising Data</td>
-                            <td>Show relevant ads and measure ad performance</td>
-                            <td>Per Google's policy</td>
-                            <td>Google AdMob</td>
-                        </tr>
-                        <tr>
-                            <td>Network State</td>
-                            <td>Ensure online features work properly</td>
-                            <td>Session only</td>
-                            <td>App functionality</td>
-                        </tr>
-                        <tr>
-                            <td>Vibration Usage</td>
-                            <td>Provide haptic feedback during gameplay</td>
-                            <td>Not stored</td>
-                            <td>App functionality</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Purpose</th>
+                                <th>Storage Location</th>
+                                <th>Service</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Game Statistics</td>
+                                <td>Track progress and achievements</td>
+                                <td>Local device storage</td>
+                                <td>App functionality</td>
+                            </tr>
+                            <tr>
+                                <td>App Preferences</td>
+                                <td>Remember your settings</td>
+                                <td>Local device storage</td>
+                                <td>SharedPreferences</td>
+                            </tr>
+                            <tr>
+                                <td>Advertising Data</td>
+                                <td>Show relevant ads and measure performance</td>
+                                <td>Google's servers</td>
+                                <td>Google AdMob</td>
+                            </tr>
+                            <tr>
+                                <td>Network State</td>
+                                <td>Ensure online features work properly</td>
+                                <td>Not stored</td>
+                                <td>App functionality</td>
+                            </tr>
+                            <tr>
+                                <td>Haptic Feedback Usage</td>
+                                <td>Provide vibration feedback during gameplay</td>
+                                <td>Not stored</td>
+                                <td>App functionality</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h3>Technical Information</h3>
                 <ul>
-                    <li><strong>Device Identifiers:</strong> Android Advertising ID, Device ID for analytics and advertising</li>
-                    <li><strong>App Usage Data:</strong> Features used, time spent in app, user interactions</li>
-                    <li><strong>Network Information:</strong> Internet connectivity status, WiFi state for optimal performance</li>
-                    <li><strong>System Information:</strong> OS version, device model, screen resolution for compatibility</li>
+                    <li><strong>Device Identifiers:</strong> Android Advertising ID for advertising purposes only</li>
+                    <li><strong>Network Information:</strong> Internet connectivity status for online features</li>
+                    <li><strong>Device Permissions:</strong> Vibration for haptic feedback, network access for ads and leaderboards</li>
                 </ul>
             </section>
 
@@ -447,54 +549,61 @@
                 <h2>🎯 How We Use Your Information</h2>
                 <p>We use the collected information for the following purposes:</p>
                 <ol>
-                    <li><strong>Core Game Functionality:</strong> To provide Tic-Tac-Toe gameplay, save progress, and maintain game state across sessions</li>
-                    <li><strong>Performance Optimization:</strong> To analyze app performance, identify and fix bugs, and ensure smooth gameplay</li>
+                    <li><strong>Core Game Functionality:</strong> To provide Tic-Tac-Toe gameplay, save progress locally, and maintain game state</li>
                     <li><strong>Personalization:</strong> To remember your theme preferences, settings, and provide a customized gaming experience</li>
-                    <li><strong>Analytics and Improvement:</strong> To understand user behavior, popular features, and improve the game based on usage patterns</li>
-                    <li><strong>Social Features:</strong> To enable leaderboards, score sharing, and competitive gameplay features</li>
-                    <li><strong>Advertising:</strong> To display relevant advertisements and measure ad effectiveness through Google AdMob</li>
-                    <li><strong>Customer Support:</strong> To respond to your feedback, support requests, and provide technical assistance</li>
+                    <li><strong>Social Features:</strong> To enable leaderboards and score sharing (only when you sign in with Google)</li>
+                    <li><strong>Advertising:</strong> To display relevant advertisements through Google AdMob</li>
+                    <li><strong>Feedback Collection:</strong> To collect and store user feedback for app improvement</li>
+                    <li><strong>App Ratings:</strong> To enable in-app rating and review functionality</li>
+                    <li><strong>Customer Support:</strong> To respond to your feedback and provide technical assistance</li>
                     <li><strong>Legal Compliance:</strong> To comply with applicable laws and protect our legal rights</li>
                 </ol>
             </section>
 
             <section class="section">
                 <h2>📱 Third-Party Services Integration</h2>
-                <p>Tappy Tac Toe integrates with the following third-party services to provide enhanced functionality:</p>
+                <p>Tappy Tac Toe integrates with the following third-party services:</p>
 
-                <h3>🔥 Google Firebase Suite</h3>
-                <ul>
-                    <li><strong>Firebase Analytics:</strong> Tracks app usage, user engagement, and helps us improve the game experience</li>
-                    <li><strong>Firebase Crashlytics:</strong> Monitors app stability and helps us quickly fix crashes and bugs</li>
-                    <li><strong>Cloud Firestore:</strong> Stores game data, leaderboards, and user feedback securely in the cloud</li>
-                    <li><strong>Firebase Authentication:</strong> Enables secure Google Sign-In for leaderboard features</li>
-                    <li><strong>Data Shared:</strong> App usage patterns, crash logs, game statistics, user preferences</li>
-                    <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-                </ul>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h4>🔥 Google Firebase</h4>
+                        <ul>
+                            <li><strong>Firebase Authentication:</strong> Secure Google Sign-In for leaderboard features</li>
+                            <li><strong>Cloud Firestore:</strong> Stores leaderboard data and user feedback securely</li>
+                            <li><strong>Data Shared:</strong> Google account info (when signed in), game scores, user feedback</li>
+                            <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+                        </ul>
+                    </div>
 
-                <h3>📺 Google AdMob</h3>
-                <ul>
-                    <li><strong>Purpose:</strong> Display advertisements to support free app availability</li>
-                    <li><strong>Ad Types:</strong> Native ads, banner ads (appropriate for 18+ audience)</li>
-                    <li><strong>Data Shared:</strong> Device identifiers, location (if permitted), ad interaction data, demographic information</li>
-                    <li><strong>Personalization:</strong> Ads may be personalized based on your interests and previous app usage</li>
-                    <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-                </ul>
+                    <div class="service-card">
+                        <h4>📺 Google AdMob</h4>
+                        <ul>
+                            <li><strong>Purpose:</strong> Display advertisements to support free app availability</li>
+                            <li><strong>Ad Types:</strong> Native ads, banner ads (appropriate for 18+ audience)</li>
+                            <li><strong>Data Shared:</strong> Android Advertising ID, ad interaction data</li>
+                            <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+                        </ul>
+                    </div>
 
-                <h3>🎮 Google Play Games Services</h3>
-                <ul>
-                    <li><strong>Purpose:</strong> Global leaderboards, achievements, and social gaming features</li>
-                    <li><strong>Data Shared:</strong> Game scores, achievements, player ID, display name</li>
-                    <li><strong>Account Required:</strong> Google account sign-in required for these features</li>
-                    <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-                </ul>
+                    <div class="service-card">
+                        <h4>⭐ App Rating Services</h4>
+                        <ul>
+                            <li><strong>Rate My App:</strong> In-app rating prompts and review collection</li>
+                            <li><strong>Package Info Plus:</strong> App version information for support</li>
+                            <li><strong>Data Stored:</strong> Your ratings and app version information</li>
+                        </ul>
+                    </div>
 
-                <h3>⭐ Rating and Review Services</h3>
-                <ul>
-                    <li><strong>Rate My App:</strong> In-app rating prompts and review collection</li>
-                    <li><strong>Package Info Plus:</strong> App version information for support and compatibility</li>
-                    <li><strong>Data Stored:</strong> Your ratings, comments, and app version information</li>
-                </ul>
+                    <div class="service-card">
+                        <h4>💾 Local Storage</h4>
+                        <ul>
+                            <li><strong>SharedPreferences:</strong> Game settings and preferences</li>
+                            <li><strong>Local Database:</strong> Game statistics and history</li>
+                            <li><strong>Storage Location:</strong> Your device only</li>
+                            <li><strong>Access:</strong> App only, not shared externally</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="section">
@@ -503,19 +612,18 @@
                 
                 <h3>Security Measures</h3>
                 <ul>
+                    <li><strong>Local Storage Security:</strong> Game data is stored securely on your device using Flutter's secure storage mechanisms</li>
+                    <li><strong>Firebase Security:</strong> Leaderboard data is protected by Google's enterprise-grade security</li>
                     <li><strong>Encryption in Transit:</strong> All data transmission uses SSL/TLS encryption protocols</li>
-                    <li><strong>Firebase Security:</strong> Data stored in Firebase is protected by Google's enterprise-grade security</li>
-                    <li><strong>Local Storage:</strong> Game preferences and settings are stored securely on your device using Flutter's secure storage</li>
-                    <li><strong>Access Control:</strong> Strict access controls limit who can access user data on a need-to-know basis</li>
-                    <li><strong>Regular Updates:</strong> We regularly update our security practices and dependencies</li>
-                    <li><strong>Audit Logging:</strong> All data access is logged and monitored for security purposes</li>
+                    <li><strong>Access Control:</strong> Only authenticated users can access leaderboard features</li>
+                    <li><strong>Minimal Data Collection:</strong> We only collect data essential for app functionality</li>
                 </ul>
 
                 <h3>Data Storage Locations</h3>
                 <ul>
-                    <li><strong>Local Device:</strong> Game settings, preferences, and temporary game state</li>
-                    <li><strong>Firebase Cloud:</strong> Leaderboards, game statistics, and user feedback (US-based servers)</li>
-                    <li><strong>Google Servers:</strong> Analytics data and advertising information per Google's policies</li>
+                    <li><strong>Local Device:</strong> Game settings, preferences, statistics, and game history</li>
+                    <li><strong>Firebase Cloud:</strong> Leaderboard scores and user feedback (only when signed in)</li>
+                    <li><strong>Google Servers:</strong> Advertising information per Google's policies</li>
                 </ul>
 
                 <div class="warning-box">
@@ -531,8 +639,8 @@
                 <ul>
                     <li><strong>Advertising Content:</strong> Ads may contain content appropriate for mature audiences</li>
                     <li><strong>Social Features:</strong> Online leaderboards and competitive features designed for adults</li>
-                    <li><strong>Data Collection:</strong> We collect more comprehensive analytics data appropriate for adult users</li>
-                    <li><strong>Legal Compliance:</strong> Enhanced privacy protections and data handling for adult users</li>
+                    <li><strong>Data Collection:</strong> We collect advertising data appropriate for adult users</li>
+                    <li><strong>Legal Compliance:</strong> Enhanced privacy protections for adult users</li>
                 </ul>
 
                 <div class="adult-notice">
@@ -548,30 +656,6 @@
             </section>
 
             <section class="section">
-                <h2>🌍 International Users & Data Transfers</h2>
-                <p>
-                    Tappy Tac Toe is available worldwide, and your information may be transferred to, stored, and processed in countries other than your own.
-                </p>
-                
-                <h3>Global Data Handling</h3>
-                <ul>
-                    <li><strong>Primary Servers:</strong> Data is primarily stored on Google's Firebase servers in the United States</li>
-                    <li><strong>GDPR Compliance:</strong> EU users have full rights under GDPR including access, rectification, portability, and deletion</li>
-                    <li><strong>Data Transfer Safeguards:</strong> We ensure adequate protection for international data transfers using Google's approved mechanisms</li>
-                    <li><strong>Local Laws:</strong> We comply with applicable local privacy laws in each jurisdiction where the app is available</li>
-                </ul>
-
-                <h3>European Union Users</h3>
-                <p>If you are in the European Union, you have additional rights under GDPR:</p>
-                <ul>
-                    <li><strong>Legal Basis:</strong> We process your data based on legitimate interests and consent</li>
-                    <li><strong>Data Protection Officer:</strong> Contact us for data protection inquiries</li>
-                    <li><strong>Right to Object:</strong> You can object to processing for direct marketing purposes</li>
-                    <li><strong>Supervisory Authority:</strong> You can file complaints with your local data protection authority</li>
-                </ul>
-            </section>
-
-            <section class="section">
                 <h2>⚙️ Your Privacy Rights & Controls</h2>
                 <p>You have comprehensive control over your personal information:</p>
                 
@@ -580,7 +664,7 @@
                     <li><strong>Access:</strong> Request a copy of all personal information we hold about you</li>
                     <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
                     <li><strong>Deletion:</strong> Request deletion of your personal information (right to be forgotten)</li>
-                    <li><strong>Portability:</strong> Request transfer of your data in a structured, machine-readable format</li>
+                    <li><strong>Portability:</strong> Request transfer of your data in a structured format</li>
                     <li><strong>Restriction:</strong> Request limitation of processing under certain circumstances</li>
                     <li><strong>Objection:</strong> Object to processing based on legitimate interests</li>
                 </ul>
@@ -588,8 +672,8 @@
                 <h3>In-App Controls</h3>
                 <ul>
                     <li><strong>Google Sign-Out:</strong> Sign out of your Google account to stop leaderboard data collection</li>
-                    <li><strong>Analytics Opt-Out:</strong> Disable analytics collection in device settings</li>
-                    <li><strong>Ad Personalization:</strong> Control ad personalization through Google Ad Settings</li>
+                    <li><strong>Clear Local Data:</strong> Uninstall the app to remove all locally stored data</li>
+                    <li><strong>Ad Settings:</strong> Control ad personalization through Google Ad Settings</li>
                     <li><strong>Haptic Feedback:</strong> Enable/disable vibration feedback in app settings</li>
                     <li><strong>Theme Preferences:</strong> Customize and change your visual preferences</li>
                 </ul>
@@ -603,7 +687,7 @@
 
                 <div class="highlight-box">
                     <p><strong>How to Exercise Your Rights:</strong> Contact us at <a href="mailto:ck.futuretech@gmail.com" class="email-link">ck.futuretech@gmail.com</a> 
-                    with your request. We will respond within 30 days (or sooner as required by applicable law). Please include sufficient information to verify your identity.</p>
+                    with your request. We will respond within 30 days. Please include sufficient information to verify your identity.</p>
                 </div>
             </section>
 
@@ -613,17 +697,16 @@
                 <h3>How Ads Work</h3>
                 <p>Tappy Tac Toe displays advertisements to support free availability of the app:</p>
                 <ul>
-                    <li><strong>Ad Networks:</strong> Primarily Google AdMob with potential for additional networks</li>
+                    <li><strong>Ad Network:</strong> Google AdMob</li>
                     <li><strong>Ad Types:</strong> Native ads integrated into the app interface, banner advertisements</li>
                     <li><strong>Age-Appropriate:</strong> All ads are filtered for 18+ audience appropriateness</li>
-                    <li><strong>Personalization:</strong> Ads may be personalized based on your interests and app usage</li>
+                    <li><strong>Frequency:</strong> Ads may appear between games or when accessing certain features</li>
                 </ul>
 
                 <h3>Ad Data Collection</h3>
                 <ul>
                     <li><strong>Advertising ID:</strong> Android Advertising ID for ad serving and measurement</li>
                     <li><strong>Interaction Data:</strong> Which ads you view, click, or interact with</li>
-                    <li><strong>Contextual Data:</strong> What game features you use to show relevant ads</li>
                     <li><strong>Performance Data:</strong> Ad load times and display success rates</li>
                 </ul>
 
@@ -631,7 +714,7 @@
                 <ul>
                     <li><strong>Google Ad Settings:</strong> Control ad personalization through your Google account</li>
                     <li><strong>Android Settings:</strong> Reset or opt-out of advertising ID tracking</li>
-                    <li><strong>Premium Version:</strong> Future ad-free premium version may be available</li>
+                    <li><strong>App Uninstall:</strong> Completely remove the app to stop all ad delivery</li>
                 </ul>
             </section>
 
@@ -639,55 +722,81 @@
                 <h2>🔄 Data Retention & Deletion</h2>
                 
                 <h3>Retention Periods</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Data Type</th>
-                            <th>Retention Period</th>
-                            <th>Reason</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Game Statistics</td>
-                            <td>Until account deletion or 3 years inactive</td>
-                            <td>Leaderboard functionality</td>
-                        </tr>
-                        <tr>
-                            <td>Crash Reports</td>
-                            <td>90 days</td>
-                            <td>Bug fixing and stability</td>
-                        </tr>
-                        <tr>
-                            <td>Analytics Data</td>
-                            <td>26 months (Google default)</td>
-                            <td>App improvement insights</td>
-                        </tr>
-                        <tr>
-                            <td>Feedback & Ratings</td>
-                            <td>5 years or until deletion requested</td>
-                            <td>Product improvement</td>
-                        </tr>
-                        <tr>
-                            <td>Account Information</td>
-                            <td>Until deletion requested</td>
-                            <td>Service provision</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Retention Period</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Local Game Statistics</td>
+                                <td>Until app uninstall</td>
+                                <td>Game functionality</td>
+                            </tr>
+                            <tr>
+                                <td>Leaderboard Data</td>
+                                <td>Until account deletion requested</td>
+                                <td>Leaderboard functionality</td>
+                            </tr>
+                            <tr>
+                                <td>Feedback & Ratings</td>
+                                <td>5 years or until deletion requested</td>
+                                <td>Product improvement</td>
+                            </tr>
+                            <tr>
+                                <td>App Preferences</td>
+                                <td>Until app uninstall</td>
+                                <td>User experience</td>
+                            </tr>
+                            <tr>
+                                <td>Advertising Data</td>
+                                <td>Per Google's policy</td>
+                                <td>Ad serving and measurement</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h3>Automatic Deletion</h3>
                 <ul>
-                    <li><strong>Inactive Accounts:</strong> Accounts inactive for 3+ years are automatically deleted</li>
-                    <li><strong>Temporary Data:</strong> Session data and temporary files are deleted automatically</li>
-                    <li><strong>Crash Data:</strong> Automatically deleted after 90 days</li>
+                    <li><strong>App Uninstall:</strong> All locally stored data is automatically deleted when you uninstall the app</li>
+                    <li><strong>Inactive Accounts:</strong> Leaderboard accounts inactive for 3+ years may be automatically deleted</li>
+                    <li><strong>Session Data:</strong> Temporary data is deleted automatically when you close the app</li>
                 </ul>
 
                 <h3>Manual Deletion</h3>
                 <ul>
-                    <li><strong>Account Deletion:</strong> Request complete account and data deletion via email</li>
-                    <li><strong>Selective Deletion:</strong> Request deletion of specific data types</li>
-                    <li><strong>App Uninstall:</strong> Uninstalling removes local data, but cloud data persists until requested for deletion</li>
+                    <li><strong>Account Deletion:</strong> Request complete account and leaderboard data deletion via email</li>
+                    <li><strong>Local Data:</strong> Clear app data in Android settings or uninstall the app</li>
+                    <li><strong>Feedback Deletion:</strong> Request removal of submitted feedback</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>🌍 International Users & Data Transfers</h2>
+                <p>
+                    Tappy Tac Toe is available worldwide, and your information may be transferred to, stored, and processed in countries other than your own.
+                </p>
+                
+                <h3>Global Data Handling</h3>
+                <ul>
+                    <li><strong>Primary Servers:</strong> Leaderboard data is stored on Google's Firebase servers (global infrastructure)</li>
+                    <li><strong>Local Storage:</strong> Most game data is stored locally on your device</li>
+                    <li><strong>GDPR Compliance:</strong> EU users have full rights under GDPR including access, rectification, portability, and deletion</li>
+                    <li><strong>Data Transfer Safeguards:</strong> We ensure adequate protection for international data transfers using Google's approved mechanisms</li>
+                </ul>
+
+                <h3>European Union Users</h3>
+                <p>If you are in the European Union, you have additional rights under GDPR:</p>
+                <ul>
+                    <li><strong>Legal Basis:</strong> We process your data based on legitimate interests and consent</li>
+                    <li><strong>Right to Object:</strong> You can object to processing for direct marketing purposes</li>
+                    <li><strong>Supervisory Authority:</strong> You can file complaints with your local data protection authority</li>
+                    <li><strong>Data Protection Contact:</strong> Contact us for data protection inquiries</li>
                 </ul>
             </section>
 
@@ -716,90 +825,51 @@
             </section>
 
             <section class="section">
-                <h2>🚨 Data Breach Notification</h2>
-                <p>In the unlikely event of a data security incident, we are committed to transparent communication:</p>
-                
-                <h3>Our Response Process</h3>
-                <ol>
-                    <li><strong>Immediate Assessment:</strong> Quickly assess the scope and impact of any incident</li>
-                    <li><strong>Containment:</strong> Take immediate steps to contain and resolve the incident</li>
-                    <li><strong>Investigation:</strong> Conduct thorough investigation to understand what happened</li>
-                    <li><strong>Notification:</strong> Notify affected users and relevant authorities as required by law</li>
-                    <li><strong>Prevention:</strong> Implement additional safeguards to prevent similar incidents</li>
-                </ol>
-
-                <h3>User Notification</h3>
-                <ul>
-                    <li><strong>Timeline:</strong> We will notify affected users within 72 hours of discovering a breach</li>
-                    <li><strong>Method:</strong> Notification via in-app message, email, or prominent website notice</li>
-                    <li><strong>Information Provided:</strong> What data was affected, what we're doing about it, and steps you can take</li>
-                </ul>
-            </section>
-
-            <section class="section">
                 <h2>⚖️ Legal Basis for Processing (GDPR)</h2>
                 <p>For users in the European Union, we process your personal data based on the following legal grounds:</p>
                 
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Data Type</th>
-                            <th>Legal Basis</th>
-                            <th>Purpose</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Game Statistics</td>
-                            <td>Legitimate Interest</td>
-                            <td>Provide leaderboards and competitive features</td>
-                        </tr>
-                        <tr>
-                            <td>Google Account Data</td>
-                            <td>Consent</td>
-                            <td>Enable social features and sign-in</td>
-                        </tr>
-                        <tr>
-                            <td>Analytics Data</td>
-                            <td>Legitimate Interest</td>
-                            <td>Improve app performance and user experience</td>
-                        </tr>
-                        <tr>
-                            <td>Advertising Data</td>
-                            <td>Consent</td>
-                            <td>Show personalized advertisements</td>
-                        </tr>
-                        <tr>
-                            <td>Crash Reports</td>
-                            <td>Legitimate Interest</td>
-                            <td>Fix bugs and ensure app stability</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Legal Basis</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Local Game Data</td>
+                                <td>Legitimate Interest</td>
+                                <td>Provide core game functionality</td>
+                            </tr>
+                            <tr>
+                                <td>Google Account Data</td>
+                                <td>Consent</td>
+                                <td>Enable leaderboard features</td>
+                            </tr>
+                            <tr>
+                                <td>App Preferences</td>
+                                <td>Legitimate Interest</td>
+                                <td>Improve user experience</td>
+                            </tr>
+                            <tr>
+                                <td>Advertising Data</td>
+                                <td>Consent</td>
+                                <td>Show personalized advertisements</td>
+                            </tr>
+                            <tr>
+                                <td>Feedback Data</td>
+                                <td>Legitimate Interest</td>
+                                <td>Improve app and provide support</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="highlight-box">
                     <p><strong>Legitimate Interest Assessment:</strong> We have conducted legitimate interest assessments for data processing not based on consent. These assessments balance our business needs with your privacy rights and ensure minimal privacy impact.</p>
                 </div>
-            </section>
-
-            <section class="section">
-                <h2>🔗 Links to Other Services</h2>
-                <p>Tappy Tac Toe may contain links to third-party websites, services, or other apps. This Privacy Policy does not apply to those external services.</p>
-                
-                <h3>External Links</h3>
-                <ul>
-                    <li><strong>Google Play Store:</strong> For app ratings and reviews</li>
-                    <li><strong>Social Media:</strong> Links to our social media profiles</li>
-                    <li><strong>Support Resources:</strong> Links to help documentation or tutorials</li>
-                    <li><strong>Partner Services:</strong> Links to related games or services</li>
-                </ul>
-
-                <h3>Third-Party Responsibility</h3>
-                <ul>
-                    <li>We are not responsible for the privacy practices of linked external services</li>
-                    <li>We encourage you to read the privacy policies of any external services you visit</li>
-                    <li>External services may have different data collection and use practices</li>
-                </ul>
             </section>
 
             <section class="section">
@@ -809,26 +879,26 @@
                 <h3>Development Framework</h3>
                 <ul>
                     <li><strong>Platform:</strong> Flutter/Dart for cross-platform development</li>
-                    <li><strong>Backend:</strong> Google Firebase for cloud services</li>
+                    <li><strong>Backend:</strong> Google Firebase for cloud services (leaderboards only)</li>
                     <li><strong>Authentication:</strong> Firebase Auth with Google Sign-In</li>
-                    <li><strong>Database:</strong> Cloud Firestore for structured data storage</li>
-                    <li><strong>Analytics:</strong> Firebase Analytics and Google Analytics</li>
+                    <li><strong>Database:</strong> Cloud Firestore for leaderboard data, SharedPreferences for local data</li>
+                    <li><strong>Advertising:</strong> Google Mobile Ads SDK</li>
                 </ul>
 
-                <h3>Data Encryption</h3>
+                <h3>Data Security</h3>
                 <ul>
-                    <li><strong>In Transit:</strong> TLS 1.3 encryption for all network communications</li>
-                    <li><strong>At Rest:</strong> AES-256 encryption for stored data</li>
+                    <li><strong>In Transit:</strong> TLS encryption for all network communications</li>
+                    <li><strong>At Rest:</strong> Local data encrypted by Android system, Firebase data encrypted by Google</li>
                     <li><strong>Local Storage:</strong> Flutter's secure storage for sensitive local data</li>
-                    <li><strong>API Security:</strong> OAuth 2.0 and API key authentication</li>
+                    <li><strong>API Security:</strong> OAuth 2.0 authentication for Google services</li>
                 </ul>
 
                 <h3>Permissions Required</h3>
                 <ul>
-                    <li><strong>Internet Access:</strong> For online features and advertisements</li>
+                    <li><strong>Internet Access:</strong> For leaderboards and advertisements</li>
                     <li><strong>Network State:</strong> To detect connectivity and optimize performance</li>
                     <li><strong>Vibration:</strong> For haptic feedback during gameplay</li>
-                    <li><strong>Google Account:</strong> Optional, for leaderboards and cloud save</li>
+                    <li><strong>Google Account:</strong> Optional, for leaderboards only</li>
                 </ul>
             </section>
 
@@ -874,6 +944,7 @@
                     <li><strong>CCPA:</strong> California Consumer Privacy Act (United States)</li>
                     <li><strong>COPPA:</strong> Children's Online Privacy Protection Act (18+ age restriction compliance)</li>
                     <li><strong>Google Play Policies:</strong> Full compliance with Google Play Console requirements</li>
+                    <li><strong>AdMob Policies:</strong> Compliance with Google AdMob advertising policies</li>
                 </ul>
 
                 <h3>Industry Standards</h3>
@@ -884,12 +955,62 @@
                     <li><strong>Transparency:</strong> Clear, comprehensive privacy disclosures</li>
                 </ul>
 
-                <h3>Regular Audits</h3>
+                <h3>Regular Reviews</h3>
                 <ul>
                     <li>Annual privacy compliance reviews</li>
-                    <li>Security assessments and penetration testing</li>
                     <li>Third-party service provider evaluations</li>
                     <li>User feedback and privacy impact assessments</li>
+                    <li>Regular updates to match platform requirements</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>🔗 Third-Party Links and Services</h2>
+                <p>Tappy Tac Toe may contain links to third-party websites, services, or other apps. This Privacy Policy does not apply to those external services.</p>
+                
+                <h3>External Links</h3>
+                <ul>
+                    <li><strong>Google Play Store:</strong> For app ratings and reviews</li>
+                    <li><strong>Social Media:</strong> Links to our social media profiles (if any)</li>
+                    <li><strong>Support Resources:</strong> Links to help documentation</li>
+                    <li><strong>Google Services:</strong> Links to Google's privacy policies and settings</li>
+                </ul>
+
+                <h3>Third-Party Responsibility</h3>
+                <ul>
+                    <li>We are not responsible for the privacy practices of linked external services</li>
+                    <li>We encourage you to read the privacy policies of any external services you visit</li>
+                    <li>External services may have different data collection and use practices</li>
+                    <li>Always verify the legitimacy of external links before providing personal information</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>📱 App-Specific Privacy Features</h2>
+                <p>Tappy Tac Toe includes several privacy-focused features designed to protect your data:</p>
+                
+                <h3>Local-First Approach</h3>
+                <ul>
+                    <li><strong>Offline Gameplay:</strong> Core game functionality works completely offline</li>
+                    <li><strong>Local Statistics:</strong> Game history and stats are stored only on your device</li>
+                    <li><strong>Optional Cloud Features:</strong> Leaderboards are entirely optional and require explicit sign-in</li>
+                    <li><strong>No Tracking:</strong> We don't track your gameplay behavior for analytics</li>
+                </ul>
+
+                <h3>Privacy Controls</h3>
+                <ul>
+                    <li><strong>Anonymous Play:</strong> You can play completely anonymously without any account</li>
+                    <li><strong>Selective Features:</strong> Choose which features to enable (ads, leaderboards, etc.)</li>
+                    <li><strong>Clear Data Options:</strong> Easy ways to clear your local data</li>
+                    <li><strong>Transparent Permissions:</strong> App only requests necessary permissions</li>
+                </ul>
+
+                <h3>Data Minimization</h3>
+                <ul>
+                    <li><strong>Essential Data Only:</strong> We only collect data necessary for app functionality</li>
+                    <li><strong>No Background Collection:</strong> App doesn't collect data when not in use</li>
+                    <li><strong>Limited Third-Party Integration:</strong> Only essential services are integrated</li>
+                    <li><strong>User Control:</strong> You control what data is shared and when</li>
                 </ul>
             </section>
         </div>
@@ -898,17 +1019,26 @@
     </div>
 
     <script>
-        // Smooth scrolling and back to top functionality
+        // Enhanced responsive functionality
         document.addEventListener('DOMContentLoaded', function() {
             const backToTop = document.getElementById('backToTop');
             
-            // Show/hide back to top button
-            window.addEventListener('scroll', function() {
+            // Show/hide back to top button based on scroll
+            function toggleBackToTop() {
                 if (window.pageYOffset > 300) {
                     backToTop.classList.add('visible');
                 } else {
                     backToTop.classList.remove('visible');
                 }
+            }
+
+            // Throttled scroll event for better performance
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                if (scrollTimeout) {
+                    clearTimeout(scrollTimeout);
+                }
+                scrollTimeout = setTimeout(toggleBackToTop, 10);
             });
             
             // Smooth scroll to top
@@ -920,7 +1050,7 @@
                 });
             });
             
-            // Add fade-in animation to elements on scroll
+            // Intersection Observer for fade-in animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -942,24 +1072,127 @@
                 section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(section);
             });
-        });
-        
-        // Print-friendly styling
-        window.addEventListener('beforeprint', function() {
-            document.body.style.background = 'white';
-            document.querySelectorAll('.content-card').forEach(card => {
-                card.style.boxShadow = 'none';
-                card.style.border = '1px solid #ccc';
+
+            // Add smooth scrolling to anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
-        });
-        
-        window.addEventListener('afterprint', function() {
-            document.body.style.background = '';
-            document.querySelectorAll('.content-card').forEach(card => {
-                card.style.boxShadow = '';
-                card.style.border = '';
+
+            // Responsive table handling
+            function handleResponsiveTables() {
+                const tables = document.querySelectorAll('.data-table');
+                tables.forEach(table => {
+                    const container = table.closest('.data-table-container');
+                    if (container) {
+                        // Add scroll indicator for mobile
+                        if (table.scrollWidth > container.clientWidth) {
+                            container.style.position = 'relative';
+                            if (!container.querySelector('.scroll-indicator')) {
+                                const indicator = document.createElement('div');
+                                indicator.className = 'scroll-indicator';
+                                indicator.innerHTML = '← Scroll to see more →';
+                                indicator.style.cssText = `
+                                    position: absolute;
+                                    bottom: 10px;
+                                    right: 10px;
+                                    background: rgba(0,0,0,0.7);
+                                    color: white;
+                                    padding: 5px 10px;
+                                    border-radius: 5px;
+                                    font-size: 12px;
+                                    pointer-events: none;
+                                `;
+                                container.appendChild(indicator);
+                                
+                                // Hide indicator after scroll
+                                container.addEventListener('scroll', () => {
+                                    if (container.scrollLeft > 10) {
+                                        indicator.style.opacity = '0';
+                                    } else {
+                                        indicator.style.opacity = '1';
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Handle responsive tables on load and resize
+            handleResponsiveTables();
+            window.addEventListener('resize', handleResponsiveTables);
+
+            // Print-friendly styling
+            window.addEventListener('beforeprint', function() {
+                document.body.style.background = 'white';
+                document.querySelectorAll('.content-card').forEach(card => {
+                    card.style.boxShadow = 'none';
+                    card.style.border = '1px solid #ccc';
+                });
+                backToTop.style.display = 'none';
             });
+            
+            window.addEventListener('afterprint', function() {
+                document.body.style.background = '';
+                document.querySelectorAll('.content-card').forEach(card => {
+                    card.style.boxShadow = '';
+                    card.style.border = '';
+                });
+                backToTop.style.display = '';
+            });
+
+            // Add keyboard navigation for accessibility
+            document.addEventListener('keydown', function(e) {
+                // Home key - scroll to top
+                if (e.key === 'Home' && e.ctrlKey) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                // End key - scroll to bottom
+                if (e.key === 'End' && e.ctrlKey) {
+                    e.preventDefault();
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }
+            });
+
+            // Performance optimization: lazy load heavy content
+            const lazyElements = document.querySelectorAll('.service-grid, .data-table-container');
+            const lazyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        lazyObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            lazyElements.forEach(el => lazyObserver.observe(el));
         });
+
+        // Additional error handling for better user experience
+        window.addEventListener('error', function(e) {
+            console.warn('Script error caught:', e.error);
+            // Graceful fallback - continue without problematic features
+        });
+
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotion.matches) {
+            // Disable animations for users who prefer reduced motion
+            document.documentElement.style.setProperty('--animation-duration', '0s');
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.animation = 'none';
+            });
+        }
     </script>
 </body>
 </html>
