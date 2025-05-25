@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Tappy Tac Toe</title>
     <meta name="description"
-        content="Privacy Policy for Tappy Tac Toe - Learn how we protect your data while you enjoy our classic Tic-Tac-Toe game.">
-    <meta name="keywords" content="Tappy Tac Toe, Privacy Policy, Data Protection, Mobile Game, CK FutureTech">
+        content="Privacy Policy for Tappy Tac Toe - Learn how we protect your data while you enjoy our classic Tic-Tac-Toe game with online multiplayer features.">
+    <meta name="keywords"
+        content="Tappy Tac Toe, Privacy Policy, Data Protection, Mobile Game, Online Multiplayer, CK FutureTech">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Privacy Policy - Tappy Tac Toe">
-    <meta property="og:description" content="Privacy Policy for Tappy Tac Toe mobile game by CK FutureTech">
+    <meta property="og:description"
+        content="Privacy Policy for Tappy Tac Toe mobile game with online multiplayer by CK FutureTech">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourwebsite.com/privacy-policy">
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         * {
@@ -25,79 +33,164 @@
 
         :root {
             --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
             --secondary-color: #8b5cf6;
             --accent-color: #06b6d4;
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
             --border-color: #e5e7eb;
+            --border-light: #f3f4f6;
             --success-color: #10b981;
             --warning-color: #f59e0b;
             --error-color: #ef4444;
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --shadow-light: rgba(0, 0, 0, 0.04);
+            --shadow-medium: rgba(0, 0, 0, 0.08);
+            --shadow-heavy: rgba(0, 0, 0, 0.12);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 20px;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #f9fafb;
+                --text-secondary: #d1d5db;
+                --text-tertiary: #9ca3af;
+                --bg-primary: #111827;
+                --bg-secondary: #1f2937;
+                --bg-tertiary: #374151;
+                --border-color: #374151;
+                --border-light: #4b5563;
+                --shadow-light: rgba(0, 0, 0, 0.2);
+                --shadow-medium: rgba(0, 0, 0, 0.3);
+                --shadow-heavy: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-primary);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-primary);
             min-height: 100vh;
+            font-size: 16px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Container with responsive padding */
+        /* Improved container with better max-width handling */
         .container {
-            max-width: 1200px;
+            max-width: min(1200px, calc(100vw - 2rem));
             margin: 0 auto;
-            padding: 1rem;
+            padding: 0 1rem;
         }
 
-        /* Header styling */
+        /* Enhanced header with better visual hierarchy */
         .header {
             text-align: center;
-            padding: 2rem 0;
+            padding: clamp(2rem, 8vw, 4rem) 0;
             color: white;
             margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-accent);
+            opacity: 0.1;
+            z-index: -1;
         }
 
         .header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: 800;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
         }
 
         .header p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            opacity: 0.9;
-            margin-bottom: 1rem;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .last-updated {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
             display: inline-block;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        /* Main content card */
+        .last-updated:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Enhanced main content card */
         .content-card {
             background: var(--bg-primary);
-            border-radius: 20px;
-            padding: clamp(1.5rem, 4vw, 2.5rem);
-            box-shadow: 0 20px 25px -5px var(--shadow-medium);
+            border-radius: var(--border-radius-xl);
+            padding: clamp(2rem, 6vw, 3rem);
+            box-shadow:
+                0 20px 25px -5px var(--shadow-medium),
+                0 10px 10px -5px var(--shadow-light);
             margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--border-light);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Section styling */
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+        }
+
+        /* Enhanced section styling */
         .section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
+            scroll-margin-top: 2rem;
         }
 
         .section:last-child {
@@ -106,147 +199,198 @@
 
         h2 {
             color: var(--primary-color);
-            font-size: clamp(1.25rem, 3vw, 1.8rem);
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-color);
             position: relative;
+            letter-spacing: -0.01em;
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -3px;
             left: 0;
-            width: 60px;
-            height: 2px;
+            width: 80px;
+            height: 3px;
             background: var(--accent-color);
+            border-radius: 2px;
         }
 
         h3 {
             color: var(--text-primary);
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            font-weight: 600;
+            margin: 2rem 0 1.25rem 0;
+            letter-spacing: -0.01em;
+        }
+
+        h4 {
+            color: var(--text-primary);
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
             font-weight: 600;
             margin: 1.5rem 0 1rem 0;
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             color: var(--text-secondary);
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: clamp(0.95rem, 2.2vw, 1.05rem);
             line-height: 1.7;
+            max-width: none;
         }
 
         ul,
         ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
+            margin: 1.25rem 0;
+            padding-left: 1.75rem;
         }
 
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 2.2vw, 1.05rem);
         }
 
-        /* App info box */
+        li::marker {
+            color: var(--primary-color);
+        }
+
+        /* Enhanced special boxes */
         .app-info {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin: 1.25rem 0;
-            border-left: 4px solid var(--primary-color);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+            border-left: 5px solid var(--primary-color);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px var(--shadow-light);
+            position: relative;
         }
 
-        .app-info p {
-            margin-bottom: 0.5rem;
+        .app-info::before {
+            content: '📱';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-primary);
+            padding: 0 0.75rem;
+            font-size: 1.5rem;
+            border-radius: 50%;
         }
 
-        .app-info p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Highlight boxes */
         .highlight-box {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border: 2px solid var(--accent-color);
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin: 1.25rem 0;
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
             position: relative;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.1);
         }
 
         .highlight-box::before {
             content: 'ℹ️';
             position: absolute;
-            top: -10px;
+            top: -12px;
             left: 20px;
             background: var(--bg-primary);
-            padding: 0 0.5rem;
-            font-size: 1.2rem;
+            padding: 0 0.75rem;
+            font-size: 1.5rem;
+            border-radius: 50%;
         }
 
         .warning-box {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border: 2px solid var(--warning-color);
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin: 1.25rem 0;
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
             position: relative;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1);
         }
 
         .warning-box::before {
             content: '⚠️';
             position: absolute;
-            top: -10px;
+            top: -12px;
             left: 20px;
             background: var(--bg-primary);
-            padding: 0 0.5rem;
-            font-size: 1.2rem;
+            padding: 0 0.75rem;
+            font-size: 1.5rem;
+            border-radius: 50%;
         }
 
         .adult-notice {
             background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
             border: 2px solid var(--error-color);
-            border-radius: 12px;
-            padding: 1.25rem;
-            margin: 1.25rem 0;
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
             position: relative;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.1);
         }
 
         .adult-notice::before {
             content: '🔞';
             position: absolute;
-            top: -10px;
+            top: -12px;
             left: 20px;
             background: var(--bg-primary);
-            padding: 0 0.5rem;
-            font-size: 1.2rem;
+            padding: 0 0.75rem;
+            font-size: 1.5rem;
+            border-radius: 50%;
         }
 
-        /* Responsive data table */
+        /* NEW: Online features highlight box */
+        .online-features-box {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.1);
+        }
+
+        .online-features-box::before {
+            content: '🌐';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-primary);
+            padding: 0 0.75rem;
+            font-size: 1.5rem;
+            border-radius: 50%;
+        }
+
+        /* Enhanced responsive table */
         .data-table-container {
             overflow-x: auto;
-            margin: 1.25rem 0;
-            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius-lg);
             box-shadow: 0 4px 6px var(--shadow-light);
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            position: relative;
         }
 
         .data-table {
             width: 100%;
-            min-width: 600px;
+            min-width: 700px;
             border-collapse: collapse;
-            background: white;
+            background: transparent;
         }
 
         .data-table th,
         .data-table td {
-            padding: 0.75rem;
+            padding: 1rem 0.75rem;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .data-table th {
@@ -254,29 +398,89 @@
             color: white;
             font-weight: 600;
             white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 2;
         }
 
         .data-table tr:hover {
             background: var(--bg-secondary);
         }
 
-        /* Contact card */
-        .contact-card {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Enhanced service grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-lg);
             padding: 2rem;
-            border-radius: 16px;
+            border-left: 5px solid var(--primary-color);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-normal);
+            box-shadow: 0 2px 4px var(--shadow-light);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            border-left-color: var(--accent-color);
+        }
+
+        .service-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Enhanced contact card */
+        .contact-card {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius-xl);
             text-align: center;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 20px 25px -5px var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-accent);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .contact-card>* {
+            position: relative;
+            z-index: 1;
         }
 
         .contact-card h3 {
             color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
 
         .contact-card p {
             color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
         }
 
         .email-link {
@@ -284,32 +488,37 @@
             text-decoration: none;
             font-weight: 600;
             border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            transition: border-color 0.3s ease;
+            transition: all var(--transition-normal);
+            padding-bottom: 2px;
         }
 
         .email-link:hover {
             border-bottom-color: white;
+            transform: translateY(-1px);
         }
 
-        /* Back to top button */
+        /* Enhanced back to top button */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             background: var(--primary-color);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-            transition: all 0.3s ease;
+            transition: all var(--transition-normal);
             opacity: 0;
             visibility: hidden;
             z-index: 1000;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 3px solid white;
         }
 
         .back-to-top.visible {
@@ -318,52 +527,105 @@
         }
 
         .back-to-top:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+            background: var(--primary-dark);
         }
 
-        /* Grid layout for service features */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+        /* Enhanced scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(99, 102, 241, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: 500;
+            pointer-events: none;
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(10px);
         }
 
-        .service-card {
+        /* Table of contents (new feature) */
+        .table-of-contents {
             background: var(--bg-secondary);
-            border-radius: 12px;
+            border-radius: var(--border-radius-lg);
             padding: 1.5rem;
-            border-left: 4px solid var(--primary-color);
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 2rem;
+            z-index: 10;
         }
 
-        .service-card h4 {
+        .table-of-contents h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
             color: var(--primary-color);
-            font-weight: 600;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .table-of-contents li {
             margin-bottom: 0.5rem;
         }
 
-        /* Responsive breakpoints */
+        .table-of-contents a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+            display: block;
+            padding: 0.5rem;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .table-of-contents a:hover {
+            color: var(--primary-color);
+            background: var(--bg-primary);
+            transform: translateX(5px);
+        }
+
+        /* Enhanced responsive design */
+        @media (max-width: 1024px) {
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .table-of-contents {
+                position: static;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
-                padding: 0.75rem;
+                padding: 0 1rem;
+                max-width: calc(100vw - 1rem);
             }
 
             .content-card {
-                border-radius: 16px;
+                border-radius: var(--border-radius-lg);
+                padding: 1.5rem;
             }
 
             .back-to-top {
                 bottom: 1.5rem;
                 right: 1.5rem;
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
             }
 
             .data-table th,
             .data-table td {
-                padding: 0.5rem;
-                font-size: 0.8rem;
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
             }
 
             .service-grid {
@@ -371,28 +633,37 @@
                 gap: 1rem;
             }
 
-            .app-info {
-                padding: 1rem;
-            }
-
+            .app-info,
             .highlight-box,
             .warning-box,
-            .adult-notice {
-                padding: 1rem;
+            .adult-notice,
+            .online-features-box {
+                padding: 1.5rem;
+                margin: 1.25rem 0;
+            }
+
+            .contact-card {
+                padding: 2rem;
+                margin-top: 2rem;
+            }
+
+            .header {
+                padding: 2rem 0;
+            }
+
+            .data-table {
+                min-width: 600px;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 0.5rem;
-            }
-
-            .header {
-                padding: 1.5rem 0;
+                padding: 0 0.75rem;
             }
 
             .content-card {
                 padding: 1.25rem;
+                border-radius: var(--border-radius-md);
             }
 
             .data-table {
@@ -401,7 +672,19 @@
 
             ul,
             ol {
-                padding-left: 1rem;
+                padding-left: 1.25rem;
+            }
+
+            .app-info,
+            .highlight-box,
+            .warning-box,
+            .adult-notice,
+            .online-features-box {
+                padding: 1.25rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
             }
         }
 
@@ -410,10 +693,14 @@
             animation: fadeIn 0.8s ease-in;
         }
 
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
 
             to {
@@ -422,88 +709,322 @@
             }
         }
 
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Loading skeleton (for enhanced UX) */
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: var(--border-radius-sm);
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-primary: #000000;
+                --text-secondary: #333333;
+                --bg-primary: #ffffff;
+                --border-color: #000000;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
         /* Print styles */
         @media print {
             body {
-                background: white;
-                color: black;
+                background: white !important;
+                color: black !important;
+                font-size: 12pt;
+                line-height: 1.4;
             }
 
             .content-card {
-                box-shadow: none;
-                border: 1px solid #ccc;
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                page-break-inside: avoid;
             }
 
-            .back-to-top {
-                display: none;
+            .back-to-top,
+            .table-of-contents {
+                display: none !important;
             }
 
             .header {
-                color: black;
+                color: black !important;
+                page-break-after: avoid;
             }
+
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 1.5rem;
+            }
+
+            h2,
+            h3,
+            h4 {
+                page-break-after: avoid;
+                color: black !important;
+            }
+
+            a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        :focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+            border-radius: var(--border-radius-sm);
+        }
+
+        /* Skip to content link */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            z-index: 1000;
+            transition: all var(--transition-fast);
+        }
+
+        .skip-to-content:focus {
+            top: 6px;
+        }
+
+        /* Enhanced link styles */
+        a {
+            color: var(--primary-color);
+            transition: all var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Status badges */
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge.new {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .status-badge.updated {
+            background: var(--warning-color);
+            color: white;
         }
     </style>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
     <div class="container">
         <header class="header fade-in">
             <h1>🎮 Tappy Tac Toe</h1>
             <p>Privacy Policy</p>
             <div class="last-updated">
-                Last Updated: January 25, 2025
+                Last Updated: January 25, 2025 <span class="status-badge updated">Updated</span>
             </div>
         </header>
 
-        <div class="content-card fade-in">
-            <div class="app-info">
+        <div class="content-card fade-in" id="main-content">
+            <div class="table-of-contents">
+                <h3>📋 Quick Navigation</h3>
+                <ul>
+                    <li><a href="#app-info">App Information</a></li>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#information-we-collect">Information We Collect</a></li>
+                    <li><a href="#online-multiplayer">Online Multiplayer Features <span
+                                class="status-badge new">New</span></a></li>
+                    <li><a href="#how-we-use">How We Use Your Information</a></li>
+                    <li><a href="#third-party-services">Third-Party Services</a></li>
+                    <li><a href="#data-security">Data Security & Storage</a></li>
+                    <li><a href="#your-rights">Your Privacy Rights</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="app-info" id="app-info">
                 <h3>App Information</h3>
                 <p><strong>App Name:</strong> Tappy Tac Toe</p>
                 <p><strong>Developer:</strong> CK FutureTech</p>
                 <p><strong>Contact:</strong> <a href="mailto:ck.futuretech@gmail.com"
                         class="email-link">ck.futuretech@gmail.com</a></p>
-                <p><strong>App Version:</strong> 1.0.0+</p>
+                <p><strong>App Version:</strong> 1.0.0+ <span class="status-badge new">With Online Multiplayer</span>
+                </p>
                 <p><strong>Platform:</strong> Android (Google Play Store)</p>
                 <p><strong>Age Rating:</strong> 18+ (Maturity Rating)</p>
+                <p><strong>Features:</strong> Local Play, Online Multiplayer, Global Leaderboards, AI Opponents</p>
             </div>
 
             <div class="adult-notice">
                 <p><strong>Age Restriction Notice:</strong> This app is rated for users 18 years and older. By
                     downloading and using Tappy Tac Toe, you confirm that you are at least 18 years of age. The app may
-                    contain features and advertisements appropriate for mature audiences.</p>
+                    contain features, online interactions, and advertisements appropriate for mature audiences.</p>
             </div>
 
-            <section class="section">
+            <section class="section" id="introduction">
                 <h2>🛡️ Introduction</h2>
                 <p>
                     Welcome to Tappy Tac Toe! CK FutureTech is committed to protecting your privacy and ensuring you
-                    have a safe,
-                    enjoyable gaming experience. This Privacy Policy explains how we collect, use, and protect your
-                    information when you use our mobile application.
+                    have a safe, enjoyable gaming experience. This Privacy Policy explains how we collect, use, and
+                    protect your information when you use our mobile application, including our new online multiplayer
+                    features.
                 </p>
                 <div class="highlight-box">
                     <p><strong>Important:</strong> Tappy Tac Toe is designed with privacy in mind. We only collect the
-                        minimal data
-                        necessary to provide you with the best gaming experience and to support essential app
-                        functionality including
-                        cloud leaderboards, Google Mobile Ads, and game preferences.</p>
+                        minimal data necessary to provide you with the best gaming experience and to support essential
+                        app functionality including online multiplayer, cloud leaderboards, Google Mobile Ads, and game
+                        preferences.</p>
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section" id="online-multiplayer">
+                <h2>🌐 Online Multiplayer Features <span class="status-badge new">New</span></h2>
+                <div class="online-features-box">
+                    <p><strong>New Online Features:</strong> Tappy Tac Toe now includes online multiplayer capabilities
+                        that allow you to play against other users worldwide. These features require additional data
+                        collection and processing to ensure a smooth, fair, and secure gaming experience.</p>
+                </div>
+
+                <h3>Online Multiplayer Data Collection</h3>
+                <ul>
+                    <li><strong>Player Identification:</strong> Unique player IDs for matchmaking and game sessions</li>
+                    <li><strong>Game Session Data:</strong> Real-time game moves, match results, and session duration
+                    </li>
+                    <li><strong>Matchmaking Information:</strong> Skill level, game preferences, and connection quality
+                    </li>
+                    <li><strong>Communication Data:</strong> Any in-game messages or interactions (if applicable)</li>
+                    <li><strong>Connection Data:</strong> IP address, network latency, and connection stability</li>
+                    <li><strong>Anti-Cheat Data:</strong> Game behavior patterns to prevent cheating and ensure fair
+                        play</li>
+                </ul>
+
+                <h3>Real-Time Data Processing</h3>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h4>🎯 Matchmaking System</h4>
+                        <ul>
+                            <li><strong>Purpose:</strong> Connect you with players of similar skill levels</li>
+                            <li><strong>Data Used:</strong> Win/loss ratio, game history, connection quality</li>
+                            <li><strong>Processing:</strong> Real-time algorithms for optimal player matching</li>
+                            <li><strong>Storage:</strong> Temporary session data, persistent skill metrics</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h4>⚡ Real-Time Game Sync</h4>
+                        <ul>
+                            <li><strong>Purpose:</strong> Synchronize game moves between players instantly</li>
+                            <li><strong>Data Used:</strong> Game board state, player moves, timestamps</li>
+                            <li><strong>Processing:</strong> Low-latency data transmission</li>
+                            <li><strong>Storage:</strong> Temporary during game, archived after completion</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h4>🛡️ Fair Play Protection</h4>
+                        <ul>
+                            <li><strong>Purpose:</strong> Detect and prevent cheating or unfair gameplay</li>
+                            <li><strong>Data Used:</strong> Move patterns, timing analysis, game behavior</li>
+                            <li><strong>Processing:</strong> AI-powered behavior analysis</li>
+                            <li><strong>Storage:</strong> Anonymized patterns for system improvement</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h4>📊 Online Statistics</h4>
+                        <ul>
+                            <li><strong>Purpose:</strong> Track your online game performance and progress</li>
+                            <li><strong>Data Used:</strong> Online wins/losses, streaks, rankings</li>
+                            <li><strong>Processing:</strong> Statistical analysis and leaderboard updates</li>
+                            <li><strong>Storage:</strong> Cloud storage for cross-device access</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Online Privacy Protections</h3>
+                <ul>
+                    <li><strong>Anonymous Matching:</strong> Players are matched using anonymous IDs, not personal
+                        information</li>
+                    <li><strong>No Direct Communication:</strong> The game focuses on gameplay without chat features to
+                        protect privacy</li>
+                    <li><strong>Secure Connections:</strong> All online gameplay uses encrypted connections</li>
+                    <li><strong>Data Minimization:</strong> Only game-essential data is transmitted during online play
+                    </li>
+                    <li><strong>Session Isolation:</strong> Each game session is isolated with no cross-session data
+                        sharing</li>
+                </ul>
+            </section>
+
+            <section class="section" id="information-we-collect">
                 <h2>📊 Information We Collect</h2>
 
                 <h3>Information You Provide Directly</h3>
                 <ul>
                     <li><strong>Google Account Information:</strong> When you sign in via Google Sign-In for
-                        leaderboards (display name, email, profile photo)</li>
+                        leaderboards and online play (display name, email, profile photo)</li>
                     <li><strong>Game Profile Data:</strong> Player name, emoji avatar, and customization settings</li>
                     <li><strong>Game Statistics:</strong> Win/loss records, game history, scores, and achievement
-                        progress stored locally on your device</li>
+                        progress (stored locally and in cloud for online features)</li>
                     <li><strong>Settings and Preferences:</strong> Theme selection, haptic feedback settings, and other
                         game preferences</li>
+                    <li><strong>Online Game Data:</strong> Multiplayer match history, online rankings, and competitive
+                        statistics</li>
                     <li><strong>Leaderboard Data:</strong> Scores and rankings when participating in global leaderboards
-                        (only if signed in)</li>
+                    </li>
                     <li><strong>Feedback and Ratings:</strong> Comments, ratings, and feedback submitted through the app
                     </li>
                 </ul>
@@ -517,38 +1038,58 @@
                                 <th>Purpose</th>
                                 <th>Storage Location</th>
                                 <th>Service</th>
+                                <th>Online Feature</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Game Statistics</td>
-                                <td>Track progress and achievements</td>
+                                <td>Local Game Statistics</td>
+                                <td>Track offline progress and achievements</td>
                                 <td>Local device storage</td>
                                 <td>App functionality</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>Online Game Sessions</td>
+                                <td>Enable multiplayer gameplay</td>
+                                <td>Firebase Realtime Database</td>
+                                <td>Online multiplayer</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Matchmaking Data</td>
+                                <td>Connect players for fair matches</td>
+                                <td>Firebase Cloud Functions</td>
+                                <td>Matchmaking system</td>
+                                <td>Yes</td>
                             </tr>
                             <tr>
                                 <td>App Preferences</td>
                                 <td>Remember your settings</td>
                                 <td>Local device storage</td>
                                 <td>SharedPreferences</td>
+                                <td>No</td>
                             </tr>
                             <tr>
                                 <td>Advertising Data</td>
                                 <td>Show relevant ads and measure performance</td>
                                 <td>Google's servers</td>
                                 <td>Google AdMob</td>
+                                <td>No</td>
                             </tr>
                             <tr>
                                 <td>Network State</td>
                                 <td>Ensure online features work properly</td>
                                 <td>Not stored</td>
                                 <td>App functionality</td>
+                                <td>Yes</td>
                             </tr>
                             <tr>
-                                <td>Haptic Feedback Usage</td>
-                                <td>Provide vibration feedback during gameplay</td>
-                                <td>Not stored</td>
-                                <td>App functionality</td>
+                                <td>Anti-Cheat Metrics</td>
+                                <td>Prevent cheating in online games</td>
+                                <td>Firebase Analytics</td>
+                                <td>Fair play system</td>
+                                <td>Yes</td>
                             </tr>
                         </tbody>
                     </table>
@@ -557,47 +1098,67 @@
                 <h3>Technical Information</h3>
                 <ul>
                     <li><strong>Device Identifiers:</strong> Android Advertising ID for advertising purposes only</li>
-                    <li><strong>Network Information:</strong> Internet connectivity status for online features</li>
-                    <li><strong>Device Permissions:</strong> Vibration for haptic feedback, network access for ads and
-                        leaderboards</li>
+                    <li><strong>Network Information:</strong> Internet connectivity status and quality for online
+                        features</li>
+                    <li><strong>Device Permissions:</strong> Vibration for haptic feedback, network access for ads,
+                        online play, and leaderboards</li>
+                    <li><strong>Performance Data:</strong> App crash reports, performance metrics, and error logs
+                        (anonymized)</li>
+                    <li><strong>Connection Quality:</strong> Network latency, stability metrics for optimal online
+                        gameplay</li>
                 </ul>
             </section>
 
-            <section class="section">
+            <section class="section" id="how-we-use">
                 <h2>🎯 How We Use Your Information</h2>
                 <p>We use the collected information for the following purposes:</p>
                 <ol>
                     <li><strong>Core Game Functionality:</strong> To provide Tic-Tac-Toe gameplay, save progress
                         locally, and maintain game state</li>
+                    <li><strong>Online Multiplayer Services:</strong> To enable real-time multiplayer gameplay,
+                        matchmaking, and game synchronization</li>
                     <li><strong>Personalization:</strong> To remember your theme preferences, settings, and provide a
                         customized gaming experience</li>
-                    <li><strong>Social Features:</strong> To enable leaderboards and score sharing (only when you sign
-                        in with Google)</li>
+                    <li><strong>Social Features:</strong> To enable leaderboards, online rankings, and competitive
+                        gameplay</li>
+                    <li><strong>Fair Play Enforcement:</strong> To detect and prevent cheating, ensuring a fair gaming
+                        environment for all players</li>
+                    <li><strong>Performance Optimization:</strong> To optimize online gameplay, reduce latency, and
+                        improve connection quality</li>
                     <li><strong>Advertising:</strong> To display relevant advertisements through Google AdMob</li>
-                    <li><strong>Feedback Collection:</strong> To collect and store user feedback for app improvement
-                    </li>
-                    <li><strong>App Ratings:</strong> To enable in-app rating and review functionality</li>
+                    <li><strong>Analytics and Improvement:</strong> To understand usage patterns and improve app
+                        functionality</li>
                     <li><strong>Customer Support:</strong> To respond to your feedback and provide technical assistance
                     </li>
                     <li><strong>Legal Compliance:</strong> To comply with applicable laws and protect our legal rights
                     </li>
                 </ol>
+
+                <div class="warning-box">
+                    <p><strong>Online Data Processing:</strong> When you use online multiplayer features, some of your
+                        data is processed in real-time to enable gameplay. This includes game moves, match results, and
+                        performance metrics. All online data processing follows strict privacy and security protocols.
+                    </p>
+                </div>
             </section>
 
-            <section class="section">
+            <section class="section" id="third-party-services">
                 <h2>📱 Third-Party Services Integration</h2>
                 <p>Tappy Tac Toe integrates with the following third-party services:</p>
 
                 <div class="service-grid">
                     <div class="service-card">
-                        <h4>🔥 Google Firebase</h4>
+                        <h4>🔥 Google Firebase (Enhanced)</h4>
                         <ul>
-                            <li><strong>Firebase Authentication:</strong> Secure Google Sign-In for leaderboard features
-                            </li>
+                            <li><strong>Firebase Authentication:</strong> Secure Google Sign-In for online features</li>
                             <li><strong>Cloud Firestore:</strong> Stores leaderboard data and user feedback securely
                             </li>
-                            <li><strong>Data Shared:</strong> Google account info (when signed in), game scores, user
-                                feedback</li>
+                            <li><strong>Realtime Database:</strong> Powers real-time multiplayer gameplay
+                                synchronization</li>
+                            <li><strong>Cloud Functions:</strong> Handles matchmaking, anti-cheat, and game logic</li>
+                            <li><strong>Firebase Analytics:</strong> Anonymized app usage and performance data</li>
+                            <li><strong>Data Shared:</strong> Google account info, game data, online statistics,
+                                real-time game moves</li>
                             <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy"
                                     target="_blank" rel="noopener">Google Privacy Policy</a></li>
                         </ul>
@@ -609,169 +1170,208 @@
                             <li><strong>Purpose:</strong> Display advertisements to support free app availability</li>
                             <li><strong>Ad Types:</strong> Native ads, banner ads (appropriate for 18+ audience)</li>
                             <li><strong>Data Shared:</strong> Android Advertising ID, ad interaction data</li>
+                            <li><strong>Frequency Control:</strong> Ads are limited during active online gameplay</li>
                             <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy"
                                     target="_blank" rel="noopener">Google Privacy Policy</a></li>
                         </ul>
                     </div>
 
                     <div class="service-card">
-                        <h4>⭐ App Rating Services</h4>
+                        <h4>🌐 Online Game Infrastructure</h4>
                         <ul>
-                            <li><strong>Rate My App:</strong> In-app rating prompts and review collection</li>
-                            <li><strong>Package Info Plus:</strong> App version information for support</li>
-                            <li><strong>Data Stored:</strong> Your ratings and app version information</li>
+                            <li><strong>WebSocket Connections:</strong> Real-time communication for multiplayer games
+                            </li>
+                            <li><strong>Load Balancing:</strong> Distributed servers for optimal performance</li>
+                            <li><strong>CDN Services:</strong> Fast content delivery for global users</li>
+                            <li><strong>Data Centers:</strong> Google Cloud infrastructure worldwide</li>
+                            <li><strong>Security:</strong> End-to-end encryption for all game communications</li>
                         </ul>
                     </div>
 
                     <div class="service-card">
-                        <h4>💾 Local Storage</h4>
+                        <h4>⭐ App Rating & Analytics</h4>
                         <ul>
-                            <li><strong>SharedPreferences:</strong> Game settings and preferences</li>
-                            <li><strong>Local Database:</strong> Game statistics and history</li>
-                            <li><strong>Storage Location:</strong> Your device only</li>
-                            <li><strong>Access:</strong> App only, not shared externally</li>
+                            <li><strong>Rate My App:</strong> In-app rating prompts and review collection</li>
+                            <li><strong>Package Info Plus:</strong> App version information for support</li>
+                            <li><strong>Crash Analytics:</strong> Anonymous crash reporting for stability</li>
+                            <li><strong>Performance Monitoring:</strong> App performance and optimization data</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h4>💾 Local & Cloud Storage</h4>
+                        <ul>
+                            <li><strong>SharedPreferences:</strong> Local game settings and preferences</li>
+                            <li><strong>Local Database:</strong> Offline game statistics and history</li>
+                            <li><strong>Cloud Sync:</strong> Cross-device synchronization for online accounts</li>
+                            <li><strong>Backup Services:</strong> Secure cloud backup of game progress</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <section class="section">
+            <section class="section" id="data-security">
                 <h2>🔒 Data Security & Storage</h2>
-                <p>We implement comprehensive security measures to protect your information:</p>
+                <p>We implement comprehensive security measures to protect your information, especially for online
+                    multiplayer features:</p>
 
-                <h3>Security Measures</h3>
+                <h3>Enhanced Security Measures</h3>
                 <ul>
-                    <li><strong>Local Storage Security:</strong> Game data is stored securely on your device using
-                        Flutter's secure storage mechanisms</li>
-                    <li><strong>Firebase Security:</strong> Leaderboard data is protected by Google's enterprise-grade
-                        security</li>
-                    <li><strong>Encryption in Transit:</strong> All data transmission uses SSL/TLS encryption protocols
-                    </li>
-                    <li><strong>Access Control:</strong> Only authenticated users can access leaderboard features</li>
-                    <li><strong>Minimal Data Collection:</strong> We only collect data essential for app functionality
-                    </li>
+                    <li><strong>End-to-End Encryption:</strong> All online game communications are encrypted using
+                        industry-standard protocols</li>
+                    <li><strong>Secure Authentication:</strong> Multi-factor authentication options for account
+                        protection</li>
+                    <li><strong>Real-Time Monitoring:</strong> Continuous monitoring for suspicious activity and
+                        potential security threats</li>
+                    <li><strong>Data Isolation:</strong> Online game sessions are isolated to prevent data leakage
+                        between matches</li>
+                    <li><strong>Regular Security Audits:</strong> Periodic security assessments and vulnerability
+                        testing</li>
+                    <li><strong>Incident Response:</strong> Rapid response procedures for any security incidents</li>
                 </ul>
 
-                <h3>Data Storage Locations</h3>
-                <ul>
-                    <li><strong>Local Device:</strong> Game settings, preferences, statistics, and game history</li>
-                    <li><strong>Firebase Cloud:</strong> Leaderboard scores and user feedback (only when signed in)</li>
-                    <li><strong>Google Servers:</strong> Advertising information per Google's policies</li>
-                </ul>
+                <h3>Data Storage Locations & Security</h3>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Storage Location</th>
+                                <th>Encryption</th>
+                                <th>Access Control</th>
+                                <th>Backup</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Local Game Data</td>
+                                <td>Device Storage</td>
+                                <td>OS-level encryption</td>
+                                <td>App-only access</td>
+                                <td>Local backup</td>
+                            </tr>
+                            <tr>
+                                <td>Online Game Sessions</td>
+                                <td>Firebase Realtime DB</td>
+                                <td>TLS 1.3 + AES-256</td>
+                                <td>Authenticated users only</td>
+                                <td>Automatic replication</td>
+                            </tr>
+                            <tr>
+                                <td>User Accounts</td>
+                                <td>Firebase Auth</td>
+                                <td>Google's security</td>
+                                <td>OAuth 2.0</td>
+                                <td>Google's backup</td>
+                            </tr>
+                            <tr>
+                                <td>Leaderboards</td>
+                                <td>Cloud Firestore</td>
+                                <td>TLS 1.3 + AES-256</td>
+                                <td>Role-based access</td>
+                                <td>Multi-region backup</td>
+                            </tr>
+                            <tr>
+                                <td>Analytics Data</td>
+                                <td>Firebase Analytics</td>
+                                <td>Google's encryption</td>
+                                <td>Anonymized data</td>
+                                <td>Google's retention</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="warning-box">
-                    <p><strong>Important Security Note:</strong> While we implement industry-standard security measures,
-                        no method of transmission over the internet or electronic storage is 100% secure. We cannot
-                        guarantee absolute security, but we are committed to protecting your personal information using
-                        the best available methods.</p>
+                    <p><strong>Important Security Note:</strong> While we implement enterprise-grade security measures
+                        including encryption, authentication, and monitoring, no method of transmission over the
+                        internet is 100% secure. We continuously update our security practices and respond immediately
+                        to any potential threats.</p>
                 </div>
             </section>
 
-            <section class="section">
-                <h2>🔞 Adult Users and Age Compliance</h2>
-                <p>
-                    Tappy Tac Toe is specifically designed and rated for users 18 years and older. This age restriction
-                    is in place due to:
-                </p>
-                <ul>
-                    <li><strong>Advertising Content:</strong> Ads may contain content appropriate for mature audiences
-                    </li>
-                    <li><strong>Social Features:</strong> Online leaderboards and competitive features designed for
-                        adults</li>
-                    <li><strong>Data Collection:</strong> We collect advertising data appropriate for adult users</li>
-                    <li><strong>Legal Compliance:</strong> Enhanced privacy protections for adult users</li>
-                </ul>
-
-                <div class="adult-notice">
-                    <p><strong>Age Verification:</strong> By using this app, you represent and warrant that you are at
-                        least 18 years old. If you are under 18, you must immediately stop using the app and uninstall
-                        it from your device.</p>
-                </div>
-
-                <h3>No Collection from Minors</h3>
-                <ul>
-                    <li>We do not knowingly collect personal information from anyone under 18 years of age</li>
-                    <li>If we discover we have collected information from someone under 18, we will delete it
-                        immediately</li>
-                    <li>Parents or guardians who believe their minor child has provided information should contact us
-                        immediately</li>
-                </ul>
-            </section>
-
-            <section class="section">
+            <section class="section" id="your-rights">
                 <h2>⚙️ Your Privacy Rights & Controls</h2>
-                <p>You have comprehensive control over your personal information:</p>
+                <p>You have comprehensive control over your personal information, including new controls for online
+                    features:</p>
 
-                <h3>Data Rights</h3>
+                <h3>Enhanced Data Rights</h3>
                 <ul>
-                    <li><strong>Access:</strong> Request a copy of all personal information we hold about you</li>
-                    <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
-                    <li><strong>Deletion:</strong> Request deletion of your personal information (right to be forgotten)
+                    <li><strong>Account Access:</strong> View all data associated with your online gaming account</li>
+                    <li><strong>Online History:</strong> Access your complete online game history and statistics</li>
+                    <li><strong>Data Portability:</strong> Export your game data in standard formats</li>
+                    <li><strong>Selective Deletion:</strong> Delete specific types of data while keeping others</li>
+                    <li><strong>Account Suspension:</strong> Temporarily disable online features while keeping local
+                        data</li>
+                    <li><strong>Complete Removal:</strong> Permanently delete all data including online presence</li>
+                </ul>
+
+                <h3>In-App Privacy Controls</h3>
+                <ul>
+                    <li><strong>Online Mode Toggle:</strong> Enable/disable online multiplayer features entirely</li>
+                    <li><strong>Matchmaking Preferences:</strong> Control who you can be matched with</li>
+                    <li><strong>Data Sharing Settings:</strong> Choose what data to share for leaderboards</li>
+                    <li><strong>Local-Only Mode:</strong> Play completely offline without any online features</li>
+                    <li><strong>Statistics Visibility:</strong> Control which statistics are visible to other players
                     </li>
-                    <li><strong>Portability:</strong> Request transfer of your data in a structured format</li>
-                    <li><strong>Restriction:</strong> Request limitation of processing under certain circumstances</li>
-                    <li><strong>Objection:</strong> Object to processing based on legitimate interests</li>
+                    <li><strong>Account Linking:</strong> Connect or disconnect social accounts</li>
                 </ul>
 
-                <h3>In-App Controls</h3>
+                <h3>Real-Time Privacy Controls</h3>
                 <ul>
-                    <li><strong>Google Sign-Out:</strong> Sign out of your Google account to stop leaderboard data
-                        collection</li>
-                    <li><strong>Clear Local Data:</strong> Uninstall the app to remove all locally stored data</li>
-                    <li><strong>Ad Settings:</strong> Control ad personalization through Google Ad Settings</li>
-                    <li><strong>Haptic Feedback:</strong> Enable/disable vibration feedback in app settings</li>
-                    <li><strong>Theme Preferences:</strong> Customize and change your visual preferences</li>
-                </ul>
-
-                <h3>External Controls</h3>
-                <ul>
-                    <li><strong>Google Ad Settings:</strong> <a href="https://adssettings.google.com" target="_blank"
-                            rel="noopener">Manage Ad Personalization</a></li>
-                    <li><strong>Google Account:</strong> <a href="https://myaccount.google.com" target="_blank"
-                            rel="noopener">Manage Google Account Data</a></li>
-                    <li><strong>Android Settings:</strong> Control app permissions in your device settings</li>
+                    <li><strong>Session Privacy:</strong> Start private game sessions that don't affect public
+                        statistics</li>
+                    <li><strong>Anonymous Matching:</strong> Play online without revealing your identity</li>
+                    <li><strong>Instant Disconnection:</strong> Immediately leave online games and clear session data
+                    </li>
+                    <li><strong>Temporary Modes:</strong> Use temporary game modes that don't save data</li>
                 </ul>
 
                 <div class="highlight-box">
-                    <p><strong>How to Exercise Your Rights:</strong> Contact us at <a
-                            href="mailto:ck.futuretech@gmail.com" class="email-link">ck.futuretech@gmail.com</a>
-                        with your request. We will respond within 30 days. Please include sufficient information to
-                        verify your identity.</p>
+                    <p><strong>Quick Privacy Actions:</strong> Access comprehensive privacy controls directly from the
+                        game settings. You can instantly switch between local-only and online modes, manage your data
+                        sharing preferences, and control your online presence with just a few taps.</p>
                 </div>
             </section>
 
-            <section class="section">
-                <h2>📢 Advertising & Marketing</h2>
+            <section class="section" id="online-safety">
+                <h2>🛡️ Online Safety & Fair Play</h2>
+                <p>We are committed to providing a safe, fair, and enjoyable online gaming environment:</p>
 
-                <h3>How Ads Work</h3>
-                <p>Tappy Tac Toe displays advertisements to support free availability of the app:</p>
+                <h3>Anti-Cheat & Fair Play</h3>
                 <ul>
-                    <li><strong>Ad Network:</strong> Google AdMob</li>
-                    <li><strong>Ad Types:</strong> Native ads integrated into the app interface, banner advertisements
+                    <li><strong>Behavioral Analysis:</strong> AI-powered detection of unusual gameplay patterns</li>
+                    <li><strong>Move Validation:</strong> Server-side validation of all game moves to prevent
+                        manipulation</li>
+                    <li><strong>Timing Analysis:</strong> Detection of impossible move speeds or automated play</li>
+                    <li><strong>Pattern Recognition:</strong> Identification of cheating software or modified game
+                        clients</li>
+                    <li><strong>Fair Penalties:</strong> Progressive consequences for confirmed cheating attempts</li>
+                </ul>
+
+                <h3>Player Protection</h3>
+                <ul>
+                    <li><strong>Anonymous Gaming:</strong> No personal information is shared between players</li>
+                    <li><strong>No Communication:</strong> Focus on gameplay without chat to prevent harassment</li>
+                    <li><strong>Reporting System:</strong> Easy reporting of suspicious behavior or technical issues
                     </li>
-                    <li><strong>Age-Appropriate:</strong> All ads are filtered for 18+ audience appropriateness</li>
-                    <li><strong>Frequency:</strong> Ads may appear between games or when accessing certain features</li>
+                    <li><strong>Quick Disconnect:</strong> Instant ability to leave uncomfortable situations</li>
+                    <li><strong>Skill-Based Matching:</strong> Fair matches based on skill level, not personal data</li>
                 </ul>
 
-                <h3>Ad Data Collection</h3>
+                <h3>Community Guidelines</h3>
                 <ul>
-                    <li><strong>Advertising ID:</strong> Android Advertising ID for ad serving and measurement</li>
-                    <li><strong>Interaction Data:</strong> Which ads you view, click, or interact with</li>
-                    <li><strong>Performance Data:</strong> Ad load times and display success rates</li>
-                </ul>
-
-                <h3>Opt-Out Options</h3>
-                <ul>
-                    <li><strong>Google Ad Settings:</strong> Control ad personalization through your Google account</li>
-                    <li><strong>Android Settings:</strong> Reset or opt-out of advertising ID tracking</li>
-                    <li><strong>App Uninstall:</strong> Completely remove the app to stop all ad delivery</li>
+                    <li><strong>Respectful Play:</strong> Expectations for sportsmanlike conduct</li>
+                    <li><strong>No Exploitation:</strong> Prohibition of game exploits or unfair advantages</li>
+                    <li><strong>Account Integrity:</strong> One account per person policy</li>
+                    <li><strong>Technical Fair Play:</strong> Prohibition of modified clients or automation</li>
                 </ul>
             </section>
 
-            <section class="section">
-                <h2>🔄 Data Retention & Deletion</h2>
+            <section class="section" id="data-retention">
+                <h2>🔄 Enhanced Data Retention & Deletion</h2>
 
-                <h3>Retention Periods</h3>
+                <h3>Updated Retention Periods</h3>
                 <div class="data-table-container">
                     <table class="data-table">
                         <thead>
@@ -779,6 +1379,7 @@
                                 <th>Data Type</th>
                                 <th>Retention Period</th>
                                 <th>Reason</th>
+                                <th>Deletion Method</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -786,345 +1387,228 @@
                                 <td>Local Game Statistics</td>
                                 <td>Until app uninstall</td>
                                 <td>Game functionality</td>
+                                <td>App uninstall/clear data</td>
+                            </tr>
+                            <tr>
+                                <td>Online Game Sessions</td>
+                                <td>30 days after completion</td>
+                                <td>Anti-cheat and dispute resolution</td>
+                                <td>Automatic deletion</td>
+                            </tr>
+                            <tr>
+                                <td>Matchmaking Data</td>
+                                <td>24 hours</td>
+                                <td>Connection optimization</td>
+                                <td>Automatic deletion</td>
                             </tr>
                             <tr>
                                 <td>Leaderboard Data</td>
                                 <td>Until account deletion requested</td>
-                                <td>Leaderboard functionality</td>
+                                <td>Competitive integrity</td>
+                                <td>Manual request</td>
                             </tr>
                             <tr>
-                                <td>Feedback & Ratings</td>
-                                <td>5 years or until deletion requested</td>
-                                <td>Product improvement</td>
+                                <td>Anti-Cheat Logs</td>
+                                <td>90 days</td>
+                                <td>Security and fair play</td>
+                                <td>Automatic deletion</td>
                             </tr>
                             <tr>
-                                <td>App Preferences</td>
-                                <td>Until app uninstall</td>
-                                <td>User experience</td>
-                            </tr>
-                            <tr>
-                                <td>Advertising Data</td>
-                                <td>Per Google's policy</td>
-                                <td>Ad serving and measurement</td>
+                                <td>Performance Analytics</td>
+                                <td>1 year (anonymized)</td>
+                                <td>App improvement</td>
+                                <td>Automatic anonymization</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h3>Automatic Deletion</h3>
+                <h3>Automated Data Management</h3>
                 <ul>
-                    <li><strong>App Uninstall:</strong> All locally stored data is automatically deleted when you
-                        uninstall the app</li>
-                    <li><strong>Inactive Accounts:</strong> Leaderboard accounts inactive for 3+ years may be
-                        automatically deleted</li>
-                    <li><strong>Session Data:</strong> Temporary data is deleted automatically when you close the app
-                    </li>
-                </ul>
-
-                <h3>Manual Deletion</h3>
-                <ul>
-                    <li><strong>Account Deletion:</strong> Request complete account and leaderboard data deletion via
-                        email</li>
-                    <li><strong>Local Data:</strong> Clear app data in Android settings or uninstall the app</li>
-                    <li><strong>Feedback Deletion:</strong> Request removal of submitted feedback</li>
+                    <li><strong>Session Cleanup:</strong> Real-time deletion of temporary game session data</li>
+                    <li><strong>Scheduled Purging:</strong> Regular deletion of expired data according to retention
+                        schedules</li>
+                    <li><strong>Privacy-First Defaults:</strong> Minimal data retention by default unless specifically
+                        needed</li>
+                    <li><strong>User-Controlled Deletion:</strong> Immediate deletion options for user-initiated
+                        requests</li>
                 </ul>
             </section>
 
-            <section class="section">
-                <h2>🌍 International Users & Data Transfers</h2>
-                <p>
-                    Tappy Tac Toe is available worldwide, and your information may be transferred to, stored, and
-                    processed in countries other than your own.
-                </p>
+            <section class="section" id="international-compliance">
+                <h2>🌍 International Compliance & Data Transfers</h2>
+                <p>With online multiplayer features, Tappy Tac Toe now serves users worldwide with enhanced compliance
+                    measures:</p>
 
-                <h3>Global Data Handling</h3>
+                <h3>Global Infrastructure</h3>
                 <ul>
-                    <li><strong>Primary Servers:</strong> Leaderboard data is stored on Google's Firebase servers
-                        (global infrastructure)</li>
-                    <li><strong>Local Storage:</strong> Most game data is stored locally on your device</li>
-                    <li><strong>GDPR Compliance:</strong> EU users have full rights under GDPR including access,
-                        rectification, portability, and deletion</li>
-                    <li><strong>Data Transfer Safeguards:</strong> We ensure adequate protection for international data
-                        transfers using Google's approved mechanisms</li>
+                    <li><strong>Regional Data Centers:</strong> Game servers located in multiple regions for optimal
+                        performance</li>
+                    <li><strong>Data Localization:</strong> User data stored in appropriate geographic regions when
+                        required</li>
+                    <li><strong>Cross-Border Safeguards:</strong> Adequate protection mechanisms for international data
+                        transfers</li>
+                    <li><strong>Compliance Monitoring:</strong> Regular audits for international privacy law compliance
+                    </li>
                 </ul>
 
-                <h3>European Union Users</h3>
-                <p>If you are in the European Union, you have additional rights under GDPR:</p>
+                <h3>Enhanced GDPR Compliance</h3>
                 <ul>
-                    <li><strong>Legal Basis:</strong> We process your data based on legitimate interests and consent
+                    <li><strong>Legal Basis Transparency:</strong> Clear legal basis for all online data processing</li>
+                    <li><strong>Data Minimization:</strong> Only collect data essential for online gameplay</li>
+                    <li><strong>Right to Object:</strong> Easy objection to online data processing</li>
+                    <li><strong>Breach Notification:</strong> Rapid notification procedures for any security incidents
                     </li>
-                    <li><strong>Right to Object:</strong> You can object to processing for direct marketing purposes
-                    </li>
-                    <li><strong>Supervisory Authority:</strong> You can file complaints with your local data protection
-                        authority</li>
-                    <li><strong>Data Protection Contact:</strong> Contact us for data protection inquiries</li>
+                    <li><strong>Data Protection Impact Assessments:</strong> Regular privacy impact evaluations</li>
                 </ul>
             </section>
 
-            <section class="section">
-                <h2>🔄 Changes to This Privacy Policy</h2>
-                <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology,
-                    legal requirements, or other factors.</p>
-
-                <h3>How We Notify You</h3>
-                <ul>
-                    <li><strong>In-App Notification:</strong> We'll notify you of significant changes through the app
-                    </li>
-                    <li><strong>Email Notification:</strong> If you've provided an email, we may send update
-                        notifications</li>
-                    <li><strong>Website Updates:</strong> The latest version will always be available on our website
-                    </li>
-                    <li><strong>Version Dating:</strong> Each version is clearly dated at the top of this policy</li>
-                </ul>
-
-                <h3>Types of Changes</h3>
-                <ul>
-                    <li><strong>Minor Updates:</strong> Clarifications, contact information changes, or minor
-                        corrections</li>
-                    <li><strong>Material Changes:</strong> Significant changes to data collection, use, or sharing
-                        practices</li>
-                    <li><strong>Legal Updates:</strong> Changes required by new laws or regulations</li>
-                </ul>
-
-                <div class="warning-box">
-                    <p><strong>Your Continued Use:</strong> By continuing to use Tappy Tac Toe after privacy policy
-                        changes, you accept the updated terms. If you disagree with changes, please stop using the app
-                        and contact us about data deletion.</p>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>⚖️ Legal Basis for Processing (GDPR)</h2>
-                <p>For users in the European Union, we process your personal data based on the following legal grounds:
-                </p>
-
-                <div class="data-table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Data Type</th>
-                                <th>Legal Basis</th>
-                                <th>Purpose</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Local Game Data</td>
-                                <td>Legitimate Interest</td>
-                                <td>Provide core game functionality</td>
-                            </tr>
-                            <tr>
-                                <td>Google Account Data</td>
-                                <td>Consent</td>
-                                <td>Enable leaderboard features</td>
-                            </tr>
-                            <tr>
-                                <td>App Preferences</td>
-                                <td>Legitimate Interest</td>
-                                <td>Improve user experience</td>
-                            </tr>
-                            <tr>
-                                <td>Advertising Data</td>
-                                <td>Consent</td>
-                                <td>Show personalized advertisements</td>
-                            </tr>
-                            <tr>
-                                <td>Feedback Data</td>
-                                <td>Legitimate Interest</td>
-                                <td>Improve app and provide support</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="highlight-box">
-                    <p><strong>Legitimate Interest Assessment:</strong> We have conducted legitimate interest
-                        assessments for data processing not based on consent. These assessments balance our business
-                        needs with your privacy rights and ensure minimal privacy impact.</p>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>🛠️ Technical Implementation</h2>
-                <p>For transparency, here are the technical details of our data handling:</p>
-
-                <h3>Development Framework</h3>
-                <ul>
-                    <li><strong>Platform:</strong> Flutter/Dart for cross-platform development</li>
-                    <li><strong>Backend:</strong> Google Firebase for cloud services (leaderboards only)</li>
-                    <li><strong>Authentication:</strong> Firebase Auth with Google Sign-In</li>
-                    <li><strong>Database:</strong> Cloud Firestore for leaderboard data, SharedPreferences for local
-                        data</li>
-                    <li><strong>Advertising:</strong> Google Mobile Ads SDK</li>
-                </ul>
-
-                <h3>Data Security</h3>
-                <ul>
-                    <li><strong>In Transit:</strong> TLS encryption for all network communications</li>
-                    <li><strong>At Rest:</strong> Local data encrypted by Android system, Firebase data encrypted by
-                        Google</li>
-                    <li><strong>Local Storage:</strong> Flutter's secure storage for sensitive local data</li>
-                    <li><strong>API Security:</strong> OAuth 2.0 authentication for Google services</li>
-                </ul>
-
-                <h3>Permissions Required</h3>
-                <ul>
-                    <li><strong>Internet Access:</strong> For leaderboards and advertisements</li>
-                    <li><strong>Network State:</strong> To detect connectivity and optimize performance</li>
-                    <li><strong>Vibration:</strong> For haptic feedback during gameplay</li>
-                    <li><strong>Google Account:</strong> Optional, for leaderboards only</li>
-                </ul>
-            </section>
-
-            <section class="section">
+            <section class="section" id="contact">
                 <h2>📞 Contact Us & Support</h2>
-                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data,
-                    please don't hesitate to contact us:</p>
+                <p>For any questions about this Privacy Policy, online features, or your data rights:</p>
 
                 <div class="contact-card">
-                    <h3>CK FutureTech - Privacy Team</h3>
+                    <h3>CK FutureTech - Privacy & Support Team</h3>
                     <p><strong>Email:</strong> <a href="mailto:ck.futuretech@gmail.com"
                             class="email-link">ck.futuretech@gmail.com</a></p>
-                    <p><strong>Subject Line:</strong> Please include "Tappy Tac Toe Privacy" in your email subject</p>
-                    <p><strong>Response Time:</strong> We aim to respond to all privacy inquiries within 48 hours</p>
+                    <p><strong>Subject Line:</strong> Include "Tappy Tac Toe Privacy" or "Online Multiplayer Privacy"
+                    </p>
+                    <p><strong>Response Time:</strong> We respond to all privacy inquiries within 24 hours</p>
+                    <p><strong>Emergency Contact:</strong> For urgent security issues, mark email as "URGENT"</p>
                 </div>
 
-                <h3>What to Include in Your Privacy Request</h3>
-                <ul>
-                    <li><strong>Your Request:</strong> Clearly state what you need (data access, deletion, correction,
-                        etc.)</li>
-                    <li><strong>Identity Verification:</strong> Include information to help us verify your identity</li>
-                    <li><strong>Account Details:</strong> Your Google account email if you use leaderboards</li>
-                    <li><strong>Specific Data:</strong> If requesting specific data types, please specify</li>
-                </ul>
+                <h3>Specialized Support Categories</h3>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h4>🔒 Privacy Rights Requests</h4>
+                        <ul>
+                            <li>Data access and portability</li>
+                            <li>Account and data deletion</li>
+                            <li>Correction of personal information</li>
+                            <li>Objection to data processing</li>
+                        </ul>
+                    </div>
 
-                <h3>Support Resources</h3>
-                <ul>
-                    <li><strong>FAQ:</strong> Check our in-app help section for common questions</li>
-                    <li><strong>Technical Issues:</strong> Report bugs or technical problems</li>
-                    <li><strong>Feature Requests:</strong> Suggest new features or improvements</li>
-                    <li><strong>General Feedback:</strong> Share your thoughts about the game</li>
-                </ul>
+                    <div class="service-card">
+                        <h4>🌐 Online Features Support</h4>
+                        <ul>
+                            <li>Multiplayer connectivity issues</li>
+                            <li>Matchmaking problems</li>
+                            <li>Online account management</li>
+                            <li>Fair play reporting</li>
+                        </ul>
+                    </div>
 
+                    <div class="service-card">
+                        <h4>🛡️ Security Concerns</h4>
+                        <ul>
+                            <li>Suspected security breaches</li>
+                            <li>Unusual account activity</li>
+                            <li>Cheating or unfair play reports</li>
+                            <li>Data protection questions</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h4>⚙️ Technical Support</h4>
+                        <ul>
+                            <li>App crashes or bugs</li>
+                            <li>Performance issues</li>
+                            <li>Feature requests</li>
+                            <li>General feedback</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="updates-changelog">
+                <h2>📝 Privacy Policy Updates & Changelog</h2>
+                <p>Track changes to our privacy practices with transparency:</p>
+
+                <h3>Recent Updates (January 2025)</h3>
                 <div class="highlight-box">
-                    <p><strong>Privacy Rights Assistance:</strong> If you need help understanding your privacy rights or
-                        how to exercise them, we're here to help. Our privacy team can guide you through the process and
-                        ensure your requests are handled properly.</p>
+                    <h4>Version 2.0 - Online Multiplayer Release</h4>
+                    <ul>
+                        <li><strong>Added:</strong> Comprehensive online multiplayer privacy disclosures</li>
+                        <li><strong>Added:</strong> Real-time data processing and storage details</li>
+                        <li><strong>Added:</strong> Enhanced security measures for online features</li>
+                        <li><strong>Added:</strong> Fair play and anti-cheat data handling</li>
+                        <li><strong>Updated:</strong> Data retention policies for online game data</li>
+                        <li><strong>Enhanced:</strong> User privacy controls and settings</li>
+                        <li><strong>Improved:</strong> International compliance procedures</li>
+                    </ul>
                 </div>
-            </section>
 
-            <section class="section">
-                <h2>✅ Compliance & Certifications</h2>
-                <p>Tappy Tac Toe is designed to comply with major privacy regulations and industry standards:</p>
-
-                <h3>Regulatory Compliance</h3>
+                <h3>Notification Preferences</h3>
                 <ul>
-                    <li><strong>GDPR:</strong> General Data Protection Regulation (European Union)</li>
-                    <li><strong>CCPA:</strong> California Consumer Privacy Act (United States)</li>
-                    <li><strong>COPPA:</strong> Children's Online Privacy Protection Act (18+ age restriction
-                        compliance)</li>
-                    <li><strong>Google Play Policies:</strong> Full compliance with Google Play Console requirements
-                    </li>
-                    <li><strong>AdMob Policies:</strong> Compliance with Google AdMob advertising policies</li>
-                </ul>
-
-                <h3>Industry Standards</h3>
-                <ul>
-                    <li><strong>Firebase Security:</strong> Leverages Google's enterprise-grade security infrastructure
-                    </li>
-                    <li><strong>Mobile App Security:</strong> Follows OWASP Mobile Security guidelines</li>
-                    <li><strong>Data Minimization:</strong> Collects only necessary data for app functionality</li>
-                    <li><strong>Transparency:</strong> Clear, comprehensive privacy disclosures</li>
-                </ul>
-
-                <h3>Regular Reviews</h3>
-                <ul>
-                    <li>Annual privacy compliance reviews</li>
-                    <li>Third-party service provider evaluations</li>
-                    <li>User feedback and privacy impact assessments</li>
-                    <li>Regular updates to match platform requirements</li>
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2>🔗 Third-Party Links and Services</h2>
-                <p>Tappy Tac Toe may contain links to third-party websites, services, or other apps. This Privacy Policy
-                    does not apply to those external services.</p>
-
-                <h3>External Links</h3>
-                <ul>
-                    <li><strong>Google Play Store:</strong> For app ratings and reviews</li>
-                    <li><strong>Social Media:</strong> Links to our social media profiles (if any)</li>
-                    <li><strong>Support Resources:</strong> Links to help documentation</li>
-                    <li><strong>Google Services:</strong> Links to Google's privacy policies and settings</li>
-                </ul>
-
-                <h3>Third-Party Responsibility</h3>
-                <ul>
-                    <li>We are not responsible for the privacy practices of linked external services</li>
-                    <li>We encourage you to read the privacy policies of any external services you visit</li>
-                    <li>External services may have different data collection and use practices</li>
-                    <li>Always verify the legitimacy of external links before providing personal information</li>
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2>📱 App-Specific Privacy Features</h2>
-                <p>Tappy Tac Toe includes several privacy-focused features designed to protect your data:</p>
-
-                <h3>Local-First Approach</h3>
-                <ul>
-                    <li><strong>Offline Gameplay:</strong> Core game functionality works completely offline</li>
-                    <li><strong>Local Statistics:</strong> Game history and stats are stored only on your device</li>
-                    <li><strong>Optional Cloud Features:</strong> Leaderboards are entirely optional and require
-                        explicit sign-in</li>
-                    <li><strong>No Tracking:</strong> We don't track your gameplay behavior for analytics</li>
-                </ul>
-
-                <h3>Privacy Controls</h3>
-                <ul>
-                    <li><strong>Anonymous Play:</strong> You can play completely anonymously without any account</li>
-                    <li><strong>Selective Features:</strong> Choose which features to enable (ads, leaderboards, etc.)
-                    </li>
-                    <li><strong>Clear Data Options:</strong> Easy ways to clear your local data</li>
-                    <li><strong>Transparent Permissions:</strong> App only requests necessary permissions</li>
-                </ul>
-
-                <h3>Data Minimization</h3>
-                <ul>
-                    <li><strong>Essential Data Only:</strong> We only collect data necessary for app functionality</li>
-                    <li><strong>No Background Collection:</strong> App doesn't collect data when not in use</li>
-                    <li><strong>Limited Third-Party Integration:</strong> Only essential services are integrated</li>
-                    <li><strong>User Control:</strong> You control what data is shared and when</li>
+                    <li><strong>In-App Notifications:</strong> Receive privacy policy updates through the app</li>
+                    <li><strong>Email Notifications:</strong> Optional email updates for significant policy changes</li>
+                    <li><strong>Website Updates:</strong> Latest version always available on our website</li>
+                    <li><strong>Change Highlights:</strong> Clear marking of new and updated sections</li>
                 </ul>
             </section>
         </div>
 
-        <a href="#" class="back-to-top" id="backToTop">↑</a>
+        <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
     </div>
 
     <script>
-        // Enhanced responsive functionality
+        // Enhanced functionality with performance optimizations
         document.addEventListener('DOMContentLoaded', function () {
             const backToTop = document.getElementById('backToTop');
+            let scrollTimeout;
+            let isScrolling = false;
 
-            // Show/hide back to top button based on scroll
-            function toggleBackToTop() {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
+            // Performance-optimized scroll handling
+            function handleScroll() {
+                if (!isScrolling) {
+                    requestAnimationFrame(() => {
+                        const scrollPosition = window.pageYOffset;
+
+                        // Show/hide back to top
+                        if (scrollPosition > 300) {
+                            backToTop.classList.add('visible');
+                        } else {
+                            backToTop.classList.remove('visible');
+                        }
+
+                        // Update table of contents active state
+                        updateActiveNavigation(scrollPosition);
+
+                        isScrolling = false;
+                    });
                 }
+                isScrolling = true;
             }
 
-            // Throttled scroll event for better performance
-            let scrollTimeout;
+            // Throttled scroll event
             window.addEventListener('scroll', function () {
                 if (scrollTimeout) {
                     clearTimeout(scrollTimeout);
                 }
-                scrollTimeout = setTimeout(toggleBackToTop, 10);
+                scrollTimeout = setTimeout(handleScroll, 16); // ~60fps
             });
+
+            // Update active navigation based on scroll position
+            function updateActiveNavigation(scrollPosition) {
+                const sections = document.querySelectorAll('.section[id]');
+                const navLinks = document.querySelectorAll('.table-of-contents a');
+
+                let activeSection = '';
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom > 100) {
+                        activeSection = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${activeSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
 
             // Smooth scroll to top
             backToTop.addEventListener('click', function (e) {
@@ -1135,136 +1619,271 @@
                 });
             });
 
-            // Intersection Observer for fade-in animations
+            // Enhanced intersection observer for animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
 
-            const observer = new IntersectionObserver(function (entries) {
+            const fadeObserver = new IntersectionObserver(function (entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('animate-in');
                     }
                 });
             }, observerOptions);
 
-            // Observe all sections for animation
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(section);
+            // Observe elements for animation
+            document.querySelectorAll('.section, .service-card, .data-table-container').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                fadeObserver.observe(element);
             });
 
-            // Add smooth scrolling to anchor links
+            // Enhanced smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-                    // Only process valid anchor links (not just '#')
                     if (href && href.length > 1) {
                         e.preventDefault();
                         try {
                             const target = document.querySelector(href);
                             if (target) {
-                                target.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'start'
+                                const headerOffset = 80;
+                                const elementPosition = target.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
                                 });
                             }
                         } catch (error) {
                             console.warn('Invalid selector:', href);
-                            // Fallback: scroll to top for invalid selectors
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         }
                     } else if (href === '#') {
-                        // Handle empty anchor (scroll to top)
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 });
             });
 
-            // Responsive table handling
-            function handleResponsiveTables() {
+            // Enhanced responsive table handling
+            function enhanceResponsiveTables() {
                 const tables = document.querySelectorAll('.data-table');
                 tables.forEach(table => {
                     const container = table.closest('.data-table-container');
-                    if (container) {
-                        // Add scroll indicator for mobile
-                        if (table.scrollWidth > container.clientWidth) {
-                            container.style.position = 'relative';
-                            if (!container.querySelector('.scroll-indicator')) {
-                                const indicator = document.createElement('div');
-                                indicator.className = 'scroll-indicator';
-                                indicator.innerHTML = '← Scroll to see more →';
-                                indicator.style.cssText = `
-                                    position: absolute;
-                                    bottom: 10px;
-                                    right: 10px;
-                                    background: rgba(0,0,0,0.7);
-                                    color: white;
-                                    padding: 5px 10px;
-                                    border-radius: 5px;
-                                    font-size: 12px;
-                                    pointer-events: none;
-                                `;
-                                container.appendChild(indicator);
+                    if (container && table.scrollWidth > container.clientWidth) {
+                        if (!container.querySelector('.scroll-indicator')) {
+                            const indicator = document.createElement('div');
+                            indicator.className = 'scroll-indicator';
+                            indicator.innerHTML = '← Scroll horizontally to see more →';
+                            container.appendChild(indicator);
 
-                                // Hide indicator after scroll
-                                container.addEventListener('scroll', () => {
+                            let scrollTimer;
+                            container.addEventListener('scroll', () => {
+                                clearTimeout(scrollTimer);
+                                indicator.style.opacity = '0.7';
+
+                                scrollTimer = setTimeout(() => {
                                     if (container.scrollLeft > 10) {
                                         indicator.style.opacity = '0';
                                     } else {
                                         indicator.style.opacity = '1';
                                     }
-                                });
-                            }
+                                }, 1000);
+                            });
                         }
                     }
                 });
             }
 
-            // Handle responsive tables on load and resize
-            handleResponsiveTables();
-            window.addEventListener('resize', handleResponsiveTables);
-
-            // Print-friendly styling
-            window.addEventListener('beforeprint', function () {
-                document.body.style.background = 'white';
-                document.querySelectorAll('.content-card').forEach(card => {
-                    card.style.boxShadow = 'none';
-                    card.style.border = '1px solid #ccc';
-                });
-                backToTop.style.display = 'none';
+            // Initialize responsive tables
+            enhanceResponsiveTables();
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(enhanceResponsiveTables, 250);
             });
 
-            window.addEventListener('afterprint', function () {
-                document.body.style.background = '';
-                document.querySelectorAll('.content-card').forEach(card => {
-                    card.style.boxShadow = '';
-                    card.style.border = '';
-                });
-                backToTop.style.display = '';
-            });
-
-            // Add keyboard navigation for accessibility
+            // Keyboard accessibility enhancements
             document.addEventListener('keydown', function (e) {
-                // Home key - scroll to top
-                if (e.key === 'Home' && e.ctrlKey) {
+                // Ctrl/Cmd + Home - scroll to top
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Home') {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
-                // End key - scroll to bottom
-                if (e.key === 'End' && e.ctrlKey) {
+
+                // Ctrl/Cmd + End - scroll to bottom
+                if ((e.ctrlKey || e.metaKey) && e.key === 'End') {
                     e.preventDefault();
                     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
+
+                // Arrow key navigation for table of contents
+                if (e.target.closest('.table-of-contents')) {
+                    const links = document.querySelectorAll('.table-of-contents a');
+                    const currentIndex = Array.from(links).indexOf(e.target);
+
+                    if (e.key === 'ArrowDown' && currentIndex < links.length - 1) {
+                        e.preventDefault();
+                        links[currentIndex + 1].focus();
+                    } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                        e.preventDefault();
+                        links[currentIndex - 1].focus();
+                    }
+                }
             });
 
-            // Performance optimization: lazy load heavy content
-            const lazyElements = document.querySelectorAll('.service-grid, .data-table-container');
+            // Enhanced print preparation
+            window.addEventListener('beforeprint', function () {
+                // Expand all content for printing
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.pageBreakInside = 'avoid';
+                });
+
+                // Hide interactive elements
+                document.querySelectorAll('.back-to-top, .scroll-indicator').forEach(el => {
+                    el.style.display = 'none';
+                });
+
+                // Ensure all content is visible
+                document.querySelectorAll('[style*="opacity: 0"]').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            });
+
+            window.addEventListener('afterprint', function () {
+                // Restore normal state
+                document.querySelectorAll('.back-to-top, .scroll-indicator').forEach(el => {
+                    el.style.display = '';
+                });
+            });
+
+            // Dark mode detection and handling
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+            function handleDarkModeChange(e) {
+                document.body.classList.toggle('dark-mode', e.matches);
+            }
+
+            prefersDarkMode.addListener(handleDarkModeChange);
+            handleDarkModeChange(prefersDarkMode);
+
+            // Reduced motion handling
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReducedMotion.matches) {
+                document.documentElement.style.setProperty('scroll-behavior', 'auto');
+                document.querySelectorAll('*').forEach(el => {
+                    el.style.transition = 'none';
+                    el.style.animation = 'none';
+                });
+            }
+
+            // Enhanced error handling with sandbox-safe checks
+            window.addEventListener('error', function (e) {
+                console.warn('Script error handled gracefully:', e.error?.message || 'Unknown error');
+                // Prevent error propagation in sandboxed environments
+                e.preventDefault();
+            });
+
+            // Sandbox-safe feature detection
+            function isFeatureAvailable(feature) {
+                try {
+                    return feature in window && window[feature] !== null;
+                } catch (error) {
+                    return false;
+                }
+            }
+
+            // Only use localStorage if available and not sandboxed
+            const storageAvailable = isFeatureAvailable('localStorage');
+            const serviceWorkerAvailable = isFeatureAvailable('serviceWorker');
+
+            // Performance monitoring with sandbox safety
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        try {
+                            const perfData = performance.getEntriesByType('navigation')[0];
+                            if (perfData && perfData.loadEventEnd - perfData.loadEventStart > 3000) {
+                                console.info('Page load took longer than expected. Consider optimizing.');
+                            }
+                        } catch (error) {
+                            // Silently handle performance API restrictions
+                        }
+                    }, 0);
+                });
+            }
+
+            // Service worker registration removed due to sandbox restrictions
+
+            // Focus management for accessibility
+            let lastFocusedElement;
+            document.addEventListener('focusin', (e) => {
+                lastFocusedElement = e.target;
+            });
+
+            // Add active state styling for navigation
+            const style = document.createElement('style');
+            style.textContent = `
+                .table-of-contents a.active {
+                    color: var(--primary-color);
+                    background: var(--bg-primary);
+                    transform: translateX(5px);
+                    font-weight: 600;
+                }
+                
+                .animate-in {
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                }
+                
+                @media (prefers-reduced-motion: reduce) {
+                    .animate-in {
+                        transition: none !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Initialize all enhancements
+            console.info('Privacy Policy page enhanced with improved UX and accessibility features');
+        });
+
+        // Utility functions for enhanced functionality
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function throttle(func, limit) {
+            let inThrottle;
+            return function () {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
+        // Progressive enhancement for modern browsers
+        if ('IntersectionObserver' in window) {
+            // Enhanced lazy loading for heavy content
             const lazyObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1274,24 +1893,28 @@
                 });
             });
 
-            lazyElements.forEach(el => lazyObserver.observe(el));
-        });
-
-        // Additional error handling for better user experience
-        window.addEventListener('error', function (e) {
-            console.warn('Script error caught:', e.error);
-            // Graceful fallback - continue without problematic features
-        });
-
-        // Check for reduced motion preference
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        if (prefersReducedMotion.matches) {
-            // Disable animations for users who prefer reduced motion
-            document.documentElement.style.setProperty('--animation-duration', '0s');
-            document.querySelectorAll('.fade-in').forEach(el => {
-                el.style.animation = 'none';
+            document.querySelectorAll('.service-grid, .data-table-container').forEach(el => {
+                lazyObserver.observe(el);
             });
         }
+
+        // Analytics helper (privacy-friendly) - localStorage removed for sandbox compatibility
+        function trackInteraction(action, category = 'privacy-policy') {
+            // Simple console logging for development/debugging
+            console.info(`User interaction: ${category} - ${action}`);
+            // Note: Replace with your preferred analytics implementation in production
+        }
+
+        // Add interaction tracking to important elements
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.email-link').forEach(link => {
+                link.addEventListener('click', () => trackInteraction('contact-email-clicked'));
+            });
+
+            document.querySelectorAll('.table-of-contents a').forEach(link => {
+                link.addEventListener('click', () => trackInteraction('navigation-used'));
+            });
+        });
     </script>
 </body>
 
